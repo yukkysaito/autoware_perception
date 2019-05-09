@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<package>
+    <name>points_preprocessor</name>
+    <version>1.10.0</version>
+    <description>The points_preprocessor package</description>
+
+    <maintainer email="yukky.saito@gmail.com">yukihiro saito</maintainer>
+
+
+    <license>Apache 2</license>
+
+    <buildtool_depend>catkin</buildtool_depend>
+
+    <build_depend>roscpp</build_depend>
+    <build_depend>sensor_msgs</build_depend>
+    <build_depend>pcl_ros</build_depend>
+    <build_depend>nodelet</build_depend>
+
+    <run_depend>roscpp</run_depend>
+    <run_depend>sensor_msgs</run_depend>
+    <run_depend>pcl_ros</run_depend>
+    <run_depend>nodelet</run_depend>
+
+    <export>
+        <nodelet plugin="${prefix}/plugins/nodelet/libcompare_map_filter.xml"/>
+    </export>
+</package>

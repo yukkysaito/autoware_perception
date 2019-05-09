@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+
+<launch>
+    <group ns="perception">
+        <include file="$(find lidar_point_pillars)/launch/lidar_point_pillars.launch" />
+        <include file="$(find dynamic_object_visualization)/launch/dynamic_object_visualizer.launch">
+            <arg name="input" value="shape_estimeted_objects"/>
+            <arg name="with_feature" value="true"/>
+            <arg name="only_known_objects" default="false"/>
+        </include>
+        <include file="$(find multi_object_tracker)/launch/multi_object_tracker.launch" />
+        <include file="$(find dynamic_object_visualization)/launch/dynamic_object_visualizer.launch">
+            <arg name="input" value="tracker/objects"/>
+            <arg name="with_feature" value="false"/>
+        </include>
+    </group>
+</launch>

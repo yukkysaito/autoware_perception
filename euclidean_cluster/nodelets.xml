@@ -1,0 +1,11 @@
+<library path="lib/libeuclidean_cluster">
+
+  <class name="euclidean_cluster/euclidean_cluster_nodelet"
+	 type="euclidean_cluster::EuclideanClusterNodelet"
+	 base_class_type="nodelet::Nodelet">
+    <description>
+      Clustering sensor_msgs/PointCloud2.
+    </description>
+  </class>
+
+</library>

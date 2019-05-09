@@ -1,0 +1,116 @@
+<robot name="test_robot">
+  <link name="sensor_mount_link"/>
+  <link name="velodyne_link"/>
+    <link name="velodyne"/>
+  <link name="front_camera/camera_link"/>
+  <link name="front_camera/camera"/>
+  <link name="front_camera/camera_optical_frame"/>
+  <link name="back_camera/camera_link"/>
+  <link name="back_camera/camera"/>
+  <link name="back_camera/camera_optical_frame"/>
+  <link name="left_camera/camera_link"/>
+  <link name="left_camera/camera"/>
+  <link name="left_camera/camera_optical_frame"/>
+  <link name="right_camera/camera_link"/>
+  <link name="right_camera/camera"/>
+  <link name="right_camera/camera_optical_frame"/>
+
+  <joint name="sensor_base_link_joint" type="fixed">
+    <origin rpy="0 0 0" xyz="0 0 0.1"/>
+    <parent link="sensor_mount_link"/>
+    <child link="sensor_base_link"/>
+  </joint>
+  <link name="sensor_base_link">
+    <visual>
+      <geometry>
+        <box size="0.12 0.12 0.07"/>
+      </geometry>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <material name="red">
+        <color rgba="1.0 0.0 0.0 0.5"/>
+      </material>
+    </visual>
+  </link>
+
+  <joint name="velodyne_link_joint" type="fixed">
+    <origin rpy="0 0 0" xyz="0 0 0.1"/>
+    <parent link="sensor_base_link"/>
+    <child link="velodyne_link"/>
+  </joint>
+  <joint name="velodyne_joint" type="fixed">
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <parent link="velodyne_link"/>
+    <child link="velodyne"/>
+  </joint>
+
+  <joint name="front_camera/camera_link_joint" type="fixed">
+    <origin rpy="0 0 0" xyz="0.06 0 0"/>
+    <parent link="sensor_base_link"/>
+    <child link="front_camera/camera_link"/>
+  </joint>
+  <joint name="front_camera/camera_joint" type="fixed">
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <parent link="front_camera/camera_link"/>
+    <child link="front_camera/camera"/>
+  </joint>
+  <joint name="front_camera/camera_optical_frame_joint" type="fixed">
+    <origin rpy="-1.57079632679 0 -1.57079632679" xyz="0 0 0"/>
+    <parent link="front_camera/camera"/>
+    <child link="front_camera/camera_optical_frame"/>
+  </joint>
+
+
+
+  <joint name="back_camera/camera_link_joint" type="fixed">
+    <origin rpy="0 0 3.1415926835897931" xyz="-0.06 0 0"/>
+    <parent link="sensor_base_link"/>
+    <child link="back_camera/camera_link"/>
+  </joint>
+  <joint name="back_camera/camera_joint" type="fixed">
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <parent link="back_camera/camera_link"/>
+    <child link="back_camera/camera"/>
+  </joint>
+  <joint name="back_camera/camera_optical_frame_joint" type="fixed">
+    <origin rpy="-1.57079632679 0 -1.57079632679" xyz="0 0 0"/>
+    <parent link="back_camera/camera"/>
+    <child link="back_camera/camera_optical_frame"/>
+  </joint>
+
+
+
+  <joint name="left_camera/camera_link_joint" type="fixed">
+    <origin rpy="0 0 1.57079632679" xyz="0 0.06 0"/>
+    <parent link="sensor_base_link"/>
+    <child link="left_camera/camera_link"/>
+  </joint>
+  <joint name="left_camera/camera_joint" type="fixed">
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <parent link="left_camera/camera_link"/>
+    <child link="left_camera/camera"/>
+  </joint>
+  <joint name="left_camera/camera_optical_frame_joint" type="fixed">
+    <origin rpy="-1.57079632679 0 -1.57079632679" xyz="0 0 0"/>
+    <parent link="left_camera/camera"/>
+    <child link="left_camera/camera_optical_frame"/>
+  </joint>
+
+
+
+  <joint name="right_camera/camera_link_joint" type="fixed">
+    <origin rpy="0 0 -1.57079632679" xyz="0 -0.06 0"/>
+    <parent link="sensor_base_link"/>
+    <child link="right_camera/camera_link"/>
+  </joint>
+  <joint name="right_camera/camera_joint" type="fixed">
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <parent link="right_camera/camera_link"/>
+    <child link="right_camera/camera"/>
+  </joint>
+  <joint name="right_camera/camera_optical_frame_joint" type="fixed">
+    <origin rpy="-1.57079632679 0 -1.57079632679" xyz="0 0 0"/>
+    <parent link="right_camera/camera"/>
+    <child link="right_camera/camera_optical_frame"/>
+  </joint>
+
+</robot>

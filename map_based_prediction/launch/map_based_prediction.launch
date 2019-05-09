@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+
+<launch>
+
+
+    <node pkg="map_based_prediction" type="map_based_prediction" name="map_based_prediction" output="screen">
+    </node>
+
+</launch>
