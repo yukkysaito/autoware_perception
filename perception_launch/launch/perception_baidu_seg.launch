@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+
+<launch>
+    <arg name="image_raw0" default="/image_raw"/>
+    <arg name="camera_info0" default="/camera_info"/>
+    <arg name="image_raw1" default=""/>
+    <arg name="camera_info1" default=""/>
+    <arg name="image_raw2" default=""/>
+    <arg name="camera_info2" default=""/>
+    <arg name="image_raw3" default=""/>
+    <arg name="camera_info3" default=""/>
+    <arg name="image_raw4" default=""/>
+    <arg name="camera_info4" default=""/>
+    <arg name="image_raw5" default=""/>
+    <arg name="camera_info5" default=""/>
+    <arg name="image_raw6" default=""/>
+    <arg name="camera_info6" default=""/>
+    <arg name="image_raw7" default=""/>
+    <arg name="camera_info7" default=""/>
+    <arg name="image_number" default="1"/>
+    <arg name="points_raw0" default="/points_raw"/>
+    <arg name="points_raw1" default=""/>
+    <arg name="points_raw2" default=""/>
+    <arg name="points_raw3" default=""/>
+    <arg name="points_raw4" default=""/>
+    <arg name="points_raw5" default=""/>
+    <arg name="points_raw6" default=""/>
+    <arg name="points_raw7" default=""/>
+    <arg name="points_number" default="1"/>
+    <arg name="pointcloud_map" default="/points_map"/>
+    <arg name="use_vector_map" default="true"/>
+
+    <include file="$(find points_preprocessor)/launch/preprocessor.launch">
+        <arg name="input_points_raw0" default="$(arg points_raw0)"/>
+        <arg name="input_points_raw1" default="$(arg points_raw1)"/>
+        <arg name="input_points_raw2" default="$(arg points_raw2)"/>
+        <arg name="input_points_raw3" default="$(arg points_raw3)"/>
+        <arg name="input_points_raw4" default="$(arg points_raw4)"/>
+        <arg name="input_points_raw5" default="$(arg points_raw5)"/>
+        <arg name="input_points_raw6" default="$(arg points_raw6)"/>
+        <arg name="input_points_raw7" default="$(arg points_raw7)"/>
+        <arg name="input_points_number" default="$(arg points_number)"/>
+    </include>
+    
+    <arg name="velodyne_32c_calibration"
+        default="$(find velodyne_pointcloud)/params/VeloView-VLP-32C.yaml" />
+    <node pkg="nodelet" type="nodelet" name="velodyne_manager" args="manager" />
+    <node pkg="nodelet" type="nodelet" name="velodyne_manager_cloud"
+      args="load velodyne_pointcloud/CloudNodelet velodyne_manager">
+      <remap from="velodyne_packets" to="/velodyne_top/velodyne_packets"/>
+      <param name="calibration" value="$(arg velodyne_32c_calibration)" />
+      <param name="max_range" value="130.0" />
+      <param name="min_range" value="1.0" />
+    </node>
+    
+
+    <group ns="perception">
+        <include file="$(find lidar_apollo_cnn_seg_detect)/launch/lidar_apollo_cnn_seg_detect.launch">
+        </include>
+        <include file="$(find shape_estimation)/launch/shape_estimation.launch">
+            <arg name="use_map_corrent" default="$(arg use_vector_map)"/>
+        </include>
+        <include file="$(find dynamic_object_visualization)/launch/dynamic_object_visualizer.launch">
+            <arg name="input" value="shape_estimeted_objects"/>
+            <arg name="with_feature" value="true"/>
+            <arg name="only_known_objects" default="false"/>
+        </include>
+        <include file="$(find multi_object_tracker)/launch/multi_object_tracker.launch" />
+        <include file="$(find dynamic_object_visualization)/launch/dynamic_object_visualizer.launch">
+            <arg name="input" value="tracker/objects"/>
+            <arg name="with_feature" value="false"/>
+            <arg name="only_known_objects" default="true"/>
+        </include>
+        <include file="$(find map_based_prediction)/launch/map_based_prediction.launch" />
+        <include file="$(find dynamic_object_visualization)/launch/dynamic_object_visualizer.launch">
+            <arg name="input" value="predictor/objects"/>
+            <arg name="with_feature" value="false"/>
+            <arg name="only_known_objects" default="true"/>
+        </include>
+    </group>
+</launch>

@@ -77,6 +77,10 @@ add_message_files(
 
             ## Remote Control
             RemoteCmd.msg
+            
+            ## Remove in the future
+            DetectedObject.msg
+            DetectedObjectArray.msg
 )
 
 ## Generate added messages and services with any dependencies listed here
