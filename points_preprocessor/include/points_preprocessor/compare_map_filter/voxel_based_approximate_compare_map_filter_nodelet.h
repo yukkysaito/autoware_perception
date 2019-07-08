@@ -25,6 +25,7 @@ private:
   PointCloudPtr voxel_map_ptr_;
   double distance_threshold_;
   pcl::VoxelGrid<pcl::PointXYZ> voxel_grid_;
+  bool set_map_in_voxel_grid_;
 
 public:
   EIGEN_MAKE_ALIGNED_OPERATOR_NEW

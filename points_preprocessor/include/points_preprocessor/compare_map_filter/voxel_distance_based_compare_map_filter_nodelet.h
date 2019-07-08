@@ -27,6 +27,7 @@ private:
   double distance_threshold_;
   pcl::search::Search<pcl::PointXYZ>::Ptr tree_;
   pcl::VoxelGrid<pcl::PointXYZ> voxel_grid_;
+  bool set_map_in_voxel_grid_;
 
 public:
   EIGEN_MAKE_ALIGNED_OPERATOR_NEW

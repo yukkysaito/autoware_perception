@@ -41,6 +41,7 @@ namespace points_preprocessor
 {
 bool VoxelBasedCompareMapFilterNodelet::child_init(ros::NodeHandle &nh, bool &has_service)
 {
+  set_map_in_voxel_grid_ = false;
   // Enable the dynamic reconfigure service
   has_service = true;
   srv_ = boost::make_shared<dynamic_reconfigure::Server<points_preprocessor::CompareMapFilterConfig> >(nh);
@@ -153,6 +154,7 @@ bool VoxelBasedCompareMapFilterNodelet::is_in_voxel(const pcl::PointXYZ &src_poi
 void VoxelBasedCompareMapFilterNodelet::input_target_callback(const PointCloudConstPtr &map)
 {
   boost::mutex::scoped_lock lock(mutex_);
+  set_map_in_voxel_grid_ = true;
   tf_input_frame_ = map->header.frame_id;
   voxel_map_ptr_.reset(new pcl::PointCloud<pcl::PointXYZ>);
   voxel_grid_.setLeafSize(distance_threshold_, distance_threshold_, distance_threshold_);
@@ -180,6 +182,10 @@ void VoxelBasedCompareMapFilterNodelet::config_callback(points_preprocessor::Com
   if (distance_threshold_ != config.distance_threshold)
   {
     distance_threshold_ = config.distance_threshold;
+    voxel_grid_.setLeafSize(distance_threshold_, distance_threshold_, distance_threshold_);
+    voxel_grid_.setSaveLeafLayout(true);
+    if (set_map_in_voxel_grid_)
+      voxel_grid_.filter(*voxel_map_ptr_);
     NODELET_DEBUG("[%s::config_callback] Setting new distance threshold to: %f.", getName().c_str(), config.distance_threshold);
   }
   // ---[ These really shouldn't be here, and as soon as dynamic_reconfigure improves, we'll remove them and inherit from Filter
