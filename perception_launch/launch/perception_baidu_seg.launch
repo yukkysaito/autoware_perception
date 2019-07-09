@@ -42,17 +42,6 @@
         <arg name="input_points_number" default="$(arg points_number)"/>
     </include>
     
-    <arg name="velodyne_32c_calibration"
-        default="$(find velodyne_pointcloud)/params/VeloView-VLP-32C.yaml" />
-    <node pkg="nodelet" type="nodelet" name="velodyne_manager" args="manager" />
-    <node pkg="nodelet" type="nodelet" name="velodyne_manager_cloud"
-      args="load velodyne_pointcloud/CloudNodelet velodyne_manager">
-      <remap from="velodyne_packets" to="/velodyne_top/velodyne_packets"/>
-      <param name="calibration" value="$(arg velodyne_32c_calibration)" />
-      <param name="max_range" value="130.0" />
-      <param name="min_range" value="1.0" />
-    </node>
-    
 
     <group ns="perception">
         <include file="$(find lidar_apollo_cnn_seg_detect)/launch/lidar_apollo_cnn_seg_detect.launch">
