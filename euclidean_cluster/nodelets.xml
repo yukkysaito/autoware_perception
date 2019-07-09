@@ -7,5 +7,12 @@
       Clustering sensor_msgs/PointCloud2.
     </description>
   </class>
+  <class name="euclidean_cluster/voxel_grid_based_euclidean_cluster_nodelet"
+	 type="euclidean_cluster::VoxelGridBasedEuclideanClusterNodelet"
+	 base_class_type="nodelet::Nodelet">
+    <description>
+      Clustering sensor_msgs/PointCloud2.
+    </description>
+  </class>
 
 </library>

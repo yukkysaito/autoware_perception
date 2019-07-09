@@ -33,7 +33,6 @@ void EuclideanClusterNodelet::onInit()
 
 void EuclideanClusterNodelet::pointcloudCallback(const sensor_msgs::PointCloud2ConstPtr &input_msg)
 {
-
     // convert ros to pcl
     pcl::PointCloud<pcl::PointXYZ>::Ptr raw_pointcloud_ptr(new pcl::PointCloud<pcl::PointXYZ>);
     pcl::fromROSMsg(*input_msg, *raw_pointcloud_ptr);
