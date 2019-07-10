@@ -39,6 +39,7 @@ private:
 
   pcl::VoxelGrid<pcl::PointXYZ> voxel_grid_;
   float voxel_leaf_size_;
+  int min_points_number_per_voxel_;
 
 };
 

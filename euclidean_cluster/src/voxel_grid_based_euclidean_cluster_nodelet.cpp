@@ -23,6 +23,7 @@ void VoxelGridBasedEuclideanClusterNodelet::onInit()
     private_nh_.param<int>("max_cluster_size", max_cluster_size_, 500);
     private_nh_.param<float>("tolerance", tolerance_, 1.0);
     private_nh_.param<float>("voxel_leaf_size", voxel_leaf_size_, 0.5);
+    private_nh_.param<int>("min_points_number_per_voxel", min_points_number_per_voxel_, 3);
 
     nh_ = getNodeHandle();
     pointcloud_sub_ = private_nh_.subscribe("input", 1, &VoxelGridBasedEuclideanClusterNodelet::pointcloudCallback, this);
@@ -40,6 +41,7 @@ void VoxelGridBasedEuclideanClusterNodelet::pointcloudCallback(const sensor_msgs
     // create voxel
     pcl::PointCloud<pcl::PointXYZ>::Ptr voxel_map_ptr(new pcl::PointCloud<pcl::PointXYZ>);
     voxel_grid_.setLeafSize(voxel_leaf_size_, voxel_leaf_size_, 100000.0);
+    voxel_grid_.setMinimumPointsNumberPerVoxel(min_points_number_per_voxel_);;
     voxel_grid_.setInputCloud(raw_pointcloud_ptr);
     voxel_grid_.setSaveLeafLayout(true);
     voxel_grid_.filter(*voxel_map_ptr);

@@ -31,11 +31,11 @@
     <remap from="~output" to="$(arg output)"/>
     <rosparam>
             target_frame: base_link
-            use_height: false
             tolerance: 0.7
-            voxel_leaf_size: 0.25
+            voxel_leaf_size: 0.35
+            min_points_number_per_voxel: 2
             min_cluster_size: 2
-            max_cluster_size: 50
+            max_cluster_size: 500
     </rosparam>
   </node>
 </launch>
