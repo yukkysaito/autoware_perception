@@ -60,7 +60,7 @@ PointPillarsROS::PointPillarsROS()
 void PointPillarsROS::createROSPubSub()
 {
   sub_points_ = nh_.subscribe<sensor_msgs::PointCloud2>("/points_raw", 1, &PointPillarsROS::pointsCallback, this);
-  pub_objects_ = nh_.advertise<autoware_msgs::DynamicObjectWithFeatureArray>("/perception/shape_estimeted_objects", 1);
+  pub_objects_ = nh_.advertise<autoware_msgs::DynamicObjectWithFeatureArray>("objects", 1);
 }
 
 geometry_msgs::Pose PointPillarsROS::getTransformedPose(const geometry_msgs::Pose& in_pose, const tf::Transform& tf)

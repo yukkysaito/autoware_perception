@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+
+<launch>
+    <include file="$(find lidar_point_pillars)/launch/lidar_point_pillars.launch" />
+</launch>

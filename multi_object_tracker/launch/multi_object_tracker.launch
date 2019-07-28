@@ -1,15 +1,15 @@
 <?xml version="1.0"?>
 
 <launch>
-    <arg name="input/objects" default="shape_estimeted_objects"/>
+    <arg name="input/objects" default="/perception/detection/objects"/>
     <arg name="input/current_pose" default="/current_pose"/>
-    <arg name="output" default="tracker/objects"/>
+    <arg name="output/objects" default="objects"/>
     <arg name="world_frame_id" default="map"/>
 
     <node pkg="multi_object_tracker" type="multi_object_tracker_node" name="multi_object_tracker" output="screen">
         <remap from="input/objects" to="$(arg input/objects)"/>
         <remap from="input/current_pose" to="$(arg input/current_pose)"/>
-        <remap from="output" to="$(arg output)"/>
+        <remap from="output" to="$(arg output/objects)"/>
         <param name="world_frame_id"   value="$(arg world_frame_id)" />
     </node>
 

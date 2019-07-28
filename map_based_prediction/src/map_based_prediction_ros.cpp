@@ -39,9 +39,9 @@ pnh_("~"),tf_listener_(tf_buffer_)
 
 void MapBasedPredictionROS::createROSPubSub()
 {
-  sub_objects_ = nh_.subscribe<autoware_msgs::DynamicObjectArray>("/perception/tracker/objects", 1, &MapBasedPredictionROS::objectsCallback, this);
-  pub_objects_ = nh_.advertise<autoware_msgs::DynamicObjectArray>("/perception/predictor/objects", 1);
-  pub_markers_ = nh_.advertise<visualization_msgs::MarkerArray>("/perception/predictor/objects_path_markers", 1);
+  sub_objects_ = nh_.subscribe<autoware_msgs::DynamicObjectArray>("/perception/tracking/objects", 1, &MapBasedPredictionROS::objectsCallback, this);
+  pub_objects_ = nh_.advertise<autoware_msgs::DynamicObjectArray>("objects", 1);
+  pub_markers_ = nh_.advertise<visualization_msgs::MarkerArray>("objects_path_markers", 1);
 }
 
 void MapBasedPredictionROS::objectsCallback(const autoware_msgs::DynamicObjectArrayConstPtr& in_objects)

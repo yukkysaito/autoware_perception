@@ -1,6 +1,8 @@
 <?xml version="1.0"?>
 
 <launch>
+    <!-- common parameters -->
+    <arg name="mode" default="camera_lidar_fusion"/>  <!-- "camera_lidar_fusion", "lidar" or "camera" -->
     <arg name="image_raw0" default="/image_raw"/>
     <arg name="camera_info0" default="/camera_info"/>
     <arg name="image_raw1" default=""/>
@@ -27,9 +29,9 @@
     <arg name="points_raw6" default=""/>
     <arg name="points_raw7" default=""/>
     <arg name="points_number" default="1"/>
-    <arg name="pointcloud_map" default="/points_map"/>
     <arg name="use_vector_map" default="true"/>
 
+    <!-- sensor data pre-processor -->
     <include file="$(find points_preprocessor)/launch/preprocessor.launch">
         <arg name="input_points_raw0" default="$(arg points_raw0)"/>
         <arg name="input_points_raw1" default="$(arg points_raw1)"/>
@@ -40,53 +42,44 @@
         <arg name="input_points_raw6" default="$(arg points_raw6)"/>
         <arg name="input_points_raw7" default="$(arg points_raw7)"/>
         <arg name="input_points_number" default="$(arg points_number)"/>
+        <arg name="output_points_raw" default="/points_raw/filtered"/>
     </include>
 
+    <!-- preception module -->
     <group ns="perception">
-        <include file="$(find euclidean_cluster)/launch/euclidean_cluster.launch">
-          <arg name="input_map" default="$(arg pointcloud_map)"/>
-        </include>
-        <include file="$(find tensorrt_yolo3)/launch/yolo3.launch">
-            <arg name="image_raw0" default="$(arg image_raw0)"/>
-            <arg name="image_raw1" default="$(arg image_raw1)"/>
-            <arg name="image_raw2" default="$(arg image_raw2)"/>
-            <arg name="image_raw3" default="$(arg image_raw3)"/>
-            <arg name="image_raw4" default="$(arg image_raw4)"/>
-            <arg name="image_raw5" default="$(arg image_raw5)"/>
-            <arg name="image_raw6" default="$(arg image_raw6)"/>
-            <arg name="image_raw7" default="$(arg image_raw7)"/>
-            <arg name="image_number" default="$(arg image_number)"/>
-        </include>
-        <include file="$(find roi_cluster_fusion)/launch/roi_cluster_fusion.launch">
-            <arg name="input_camera_info0" default="$(arg camera_info0)"/>
-            <arg name="input_camera_info1" default="$(arg camera_info1)"/>
-            <arg name="input_camera_info2" default="$(arg camera_info2)"/>
-            <arg name="input_camera_info3" default="$(arg camera_info3)"/>
-            <arg name="input_camera_info4" default="$(arg camera_info4)"/>
-            <arg name="input_camera_info5" default="$(arg camera_info5)"/>
-            <arg name="input_camera_info6" default="$(arg camera_info6)"/>
-            <arg name="input_camera_info7" default="$(arg camera_info7)"/>
-            <arg name="input_rois_number" default="$(arg image_number)"/>
-        </include>
-        <include file="$(find shape_estimation)/launch/shape_estimation.launch">
-            <arg name="use_map_corrent" default="$(arg use_vector_map)"/>
-        </include>
-        <include file="$(find dynamic_object_visualization)/launch/dynamic_object_visualizer.launch">
-            <arg name="input" value="shape_estimeted_objects"/>
-            <arg name="with_feature" value="true"/>
-            <arg name="only_known_objects" default="false"/>
-        </include>
-        <include file="$(find multi_object_tracker)/launch/multi_object_tracker.launch" />
-        <include file="$(find dynamic_object_visualization)/launch/dynamic_object_visualizer.launch">
-            <arg name="input" value="tracker/objects"/>
-            <arg name="with_feature" value="false"/>
-            <arg name="only_known_objects" default="true"/>
-        </include>
-        <include file="$(find map_based_prediction)/launch/map_based_prediction.launch" />
-        <include file="$(find dynamic_object_visualization)/launch/dynamic_object_visualizer.launch">
-            <arg name="input" value="predictor/objects"/>
-            <arg name="with_feature" value="false"/>
-            <arg name="only_known_objects" default="true"/>
-        </include>
+        <!-- detection module -->
+        <group ns="detection">
+            <include file="$(find perception_launch)/launch/detection/detection.launch">
+                <arg name="mode" default="$(arg mode)"/>
+                <arg name="image_raw0" default="$(arg image_raw0)"/>
+                <arg name="camera_info0" default="$(arg camera_info0)"/>
+                <arg name="image_raw1" default="$(arg image_raw1)"/>
+                <arg name="camera_info1" default="$(arg camera_info1)"/>
+                <arg name="image_raw2" default="$(arg image_raw2)"/>
+                <arg name="camera_info2" default="$(arg camera_info2)"/>
+                <arg name="image_raw3" default="$(arg image_raw3)"/>
+                <arg name="camera_info3" default="$(arg camera_info3)"/>
+                <arg name="image_raw4" default="$(arg image_raw4)"/>
+                <arg name="camera_info4" default="$(arg camera_info4)"/>
+                <arg name="image_raw5" default="$(arg image_raw5)"/>
+                <arg name="camera_info5" default="$(arg camera_info5)"/>
+                <arg name="image_raw6" default="$(arg image_raw6)"/>
+                <arg name="camera_info6" default="$(arg camera_info6)"/>
+                <arg name="image_raw7" default="$(arg image_raw7)"/>
+                <arg name="camera_info7" default="$(arg camera_info7)"/>
+                <arg name="image_number" default="$(arg image_number)"/>
+                <arg name="use_vector_map" default="$(arg use_vector_map)"/>
+            </include>
+        </group>
+        <!-- tracking module -->
+        <group ns="tracking">
+            <include file="$(find perception_launch)/launch/tracking/tracking.launch">
+            </include>
+        </group>
+        <!-- prediction module -->
+        <group ns="prediction">
+            <include file="$(find perception_launch)/launch/prediction/prediction.launch">
+            </include>
+        </group>
     </group>
 </launch>
