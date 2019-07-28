@@ -5,14 +5,14 @@
 2. pause rosbag
 3. load pointcloud map, vector map, world map tf, vehicle tf
 5. launch ndt matching
-7. camera lidar calibration publisher
-8. `roslaunch perception_launch perception.launch`
-
-
-
-## How to use PointPillars + Multi Object Tracker
-1. Download [PointPillars](https://github.com/k0suke-murakami/kitti_pretrained_point_pillars) file into `lidar_point_pillars/data/`.
-2. `roslaunch perception_launch perception_with_pointpillars.launch`
+6. camera lidar calibration publisher
+7. run perception 
+ - camera lidar base
+   ```roslaunch perception_launch perception.launch mode:="camera_lidar_fusion"```
+ - only lidar
+  ```roslaunch perception_launch perception.launch mode:="lidar"```
+ - only camera
+  ```roslaunch perception_launch perception.launch mode:="camera"```
 
 ## How to use TensorRT YOLOv3
 2019/05/01
