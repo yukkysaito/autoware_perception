@@ -16,22 +16,8 @@
         output_frame : base_link
     </rosparam>
   </node>
-  <node pkg="nodelet" type="nodelet" name="crop_box_filter" args="load pcl/CropBox pcl_manager" output="screen">
-    <remap from="~input" to="$(arg input)/voxel_grid/filtered" />
-    <remap from="~output" to="$(arg input)/crop_box/filtered" />
-    <rosparam>
-        min_x: -2.0
-        max_x: 2.0
-        min_y: -1.5
-        max_y: 1.5
-        min_z: 0.0
-        max_z: 3.0
-        negative: True
-        output_frame : base_link
-    </rosparam>
-  </node>
   <node pkg="nodelet" type="nodelet" name="compare_map_filter" args="load points_preprocessor/voxel_based_compare_map_filter_nodelet pcl_manager" output="screen">
-    <remap from="~input" to="$(arg input)/crop_box/filtered"/>
+    <remap from="~input" to="$(arg input)/voxel_grid/filtered"/>
     <remap from="~map" to="$(arg input_map)"/>
     <remap from="~output" to="$(arg output)"/>
   </node>

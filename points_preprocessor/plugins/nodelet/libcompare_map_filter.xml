@@ -28,4 +28,11 @@
       compare two pointcloud data between map and sensor data.
     </description>
   </class>
+  <class name="points_preprocessor/octree_based_compare_map_filter_nodelet"
+	 type="points_preprocessor::OctreeBasedCompareMapFilterNodelet"
+	 base_class_type="nodelet::Nodelet">
+    <description>
+      compare two pointcloud data between map and sensor data.
+    </description>
+  </class>
 </library>

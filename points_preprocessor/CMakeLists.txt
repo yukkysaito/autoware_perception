@@ -44,6 +44,7 @@ add_library(compare_map_filter
             src/compare_map_filter/voxel_based_approximate_compare_map_filter_nodelet.cpp
             src/compare_map_filter/voxel_distance_based_compare_map_filter_nodelet.cpp
             src/compare_map_filter/voxel_based_compare_map_filter_nodelet.cpp
+            src/compare_map_filter/octree_based_compare_map_filter_nodelet.cpp
             src/filter.cpp # copy from pcl_ros https://github.com/ros-
                            # perception/perception_pcl/issues/9
             )
@@ -87,6 +88,14 @@ target_link_libraries(voxel_based_compare_map_filter_node
                       ${catkin_LIBRARIES}
                       ${PCL_LIBRARIES})
 add_dependencies(voxel_based_compare_map_filter_node ${catkin_EXPORTED_TARGETS})
+add_executable(octree_based_compare_map_filter_node
+               src/compare_map_filter/octree_based_compare_map_filter_node.cpp)
+target_link_libraries(octree_based_compare_map_filter_node
+                      compare_map_filter
+                      ${Boost_LIBRARIES}
+                      ${catkin_LIBRARIES}
+                      ${PCL_LIBRARIES})
+add_dependencies(octree_based_compare_map_filter_node ${catkin_EXPORTED_TARGETS})
 
 
 # Unit Tests ### if (CATKIN_ENABLE_TESTING) find_package(rostest REQUIRED)
