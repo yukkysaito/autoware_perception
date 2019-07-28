@@ -27,7 +27,6 @@
     <arg name="points_raw6" default=""/>
     <arg name="points_raw7" default=""/>
     <arg name="points_number" default="4"/>
-    <arg name="pointcloud_map" default="/points_map"/>
     <arg name="use_vector_map" default="false"/>
 
     <include file="$(find perception_launch)/launch/perception.launch">
@@ -57,7 +56,6 @@
         <arg name="points_raw6" default="$(arg points_raw6)"/>
         <arg name="points_raw7" default="$(arg points_raw7)"/>
         <arg name="points_number" default="$(arg points_number)"/>
-        <arg name="pointcloud_map" default="$(arg pointcloud_map)"/>
         <arg name="use_vector_map" default="$(arg use_vector_map)"/>
     </include>
 </launch>
