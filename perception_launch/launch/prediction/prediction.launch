@@ -2,6 +2,7 @@
 
 <launch>
     <include file="$(find map_based_prediction)/launch/map_based_prediction.launch" />
+    <!-- visualization -->
     <include file="$(find dynamic_object_visualization)/launch/dynamic_object_visualizer.launch">
         <arg name="input" value="objects"/>
         <arg name="with_feature" value="false"/>
