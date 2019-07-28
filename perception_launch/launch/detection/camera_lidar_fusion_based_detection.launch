@@ -22,7 +22,7 @@
     <arg name="pointcloud_map" default="/points_map"/>
 
     <include file="$(find euclidean_cluster)/launch/euclidean_cluster.launch">
-        <arg name="input_map" default="$(arg pointcloud_map)"/>
+        <arg name="input/map" default="$(arg pointcloud_map)"/>
     </include>
     <include file="$(find tensorrt_yolo3)/launch/yolo3.launch">
         <arg name="image_raw0" default="$(arg image_raw0)"/>
