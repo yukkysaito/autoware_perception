@@ -1,5 +1,8 @@
 # new_perception
 
+## Prerequisite
+1. Download [caffemodel](https://drive.google.com/file/d/1jEMkhuQmpUAc1rMvFdkggULHwQwzONer/view?usp=sharing) and [prototxt](https://drive.google.com/file/d/1XLW0dlic8rzhvMbzPh8co3AnmcjAyq9h/view?usp=sharing) into `tensorrt_yolo3/data/yolov3_416.caffemodel`/`tensorrt_yolo3/data/yolov3_416_trt.prototxt`.
+
 ## How to use
 1. start rosbag
 2. pause rosbag
@@ -14,10 +17,7 @@
  - only camera
   ```roslaunch perception_launch perception.launch mode:="camera"```
 
-## How to use TensorRT YOLOv3
-2019/05/01
-when run catkin_make, automaticaly download caffemodel and prototxt. but you need to install tensorrt.
-
-1. Download [caffemodel](https://drive.google.com/file/d/1KXsxBURDo72nCEZ5vUlmuneOfSbV4ycE/view?usp=sharing) and [prototxt](https://drive.google.com/file/d/106bRoHNWYmCRXdrd6XRfxl3CNZ8M0BAS/view?usp=sharing) into `tensorrt_yolo3/data/yolov3_416.caffemodel`/`tensorrt_yolo3/data/yolov3_416_trt.prototxt`.
-2. `roslaunch tensorrt_yolo3 tensorrt_yolo3.launch`
-3. The result is shown in `/perception/tensorrt_yolo3/classified_image` topic.
+## How to use baidu_cnn_seg + shape_estiomation + object_tracker + predictrion
+1. Download [caffemodel](https://drive.google.com/file/d/1Md3qOLcW6nWSLvnnZH3aHEEJPvblCBkY/view?usp=sharing) and [prototxt](https://drive.google.com/file/d/1doEp46CV1uc7851w6iYfuxZiM6Uc0b_N/view?usp=sharing) into `lidar_apollo_cnn_seg/data/apollo_cnn.caffemodel`/`lidar_apollo_cnn_seg/data/apollo_cnn.prototxt`.
+2. Load vectormap
+3. `roslaunch perception_launch perception_baidu_seg.launch`
