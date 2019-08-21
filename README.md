@@ -19,5 +19,3 @@
 
 ## How to use baidu_cnn_seg + shape_estiomation + object_tracker + predictrion
 1. Download [caffemodel](https://drive.google.com/file/d/1Md3qOLcW6nWSLvnnZH3aHEEJPvblCBkY/view?usp=sharing) and [prototxt](https://drive.google.com/file/d/1doEp46CV1uc7851w6iYfuxZiM6Uc0b_N/view?usp=sharing) into `lidar_apollo_cnn_seg/data/apollo_cnn.caffemodel`/`lidar_apollo_cnn_seg/data/apollo_cnn.prototxt`.
-2. Load vectormap
-3. `roslaunch perception_launch perception_baidu_seg.launch`
