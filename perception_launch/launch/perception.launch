@@ -2,7 +2,7 @@
 
 <launch>
     <!-- common parameters -->
-    <arg name="mode" default="camera_lidar_fusion"/>  <!-- "camera_lidar_fusion", "lidar" or "camera" -->
+    <arg name="mode" default="lidar"/>  <!-- "camera_lidar_fusion", "lidar" or "camera" -->
     <arg name="image_raw0" default="/image_raw"/>
     <arg name="camera_info0" default="/camera_info"/>
     <arg name="image_raw1" default=""/>
@@ -29,7 +29,7 @@
     <arg name="points_raw6" default=""/>
     <arg name="points_raw7" default=""/>
     <arg name="points_number" default="1"/>
-    <arg name="use_vector_map" default="true"/>
+    <arg name="use_vector_map" default="false"/>
 
     <!-- sensor data pre-processor -->
     <include file="$(find points_preprocessor)/launch/preprocessor.launch">

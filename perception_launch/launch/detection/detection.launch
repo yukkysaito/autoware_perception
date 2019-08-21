@@ -47,6 +47,7 @@
     <!-- lidar based detection-->
     <group if="$(eval mode=='lidar')">
         <include file="$(find perception_launch)/launch/detection/lidar_based_detection.launch">
+            <arg name="use_vector_map" default="$(arg use_vector_map)"/>        
         </include>
     </group>
     <!-- camera based detection-->
