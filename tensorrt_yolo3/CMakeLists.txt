@@ -90,7 +90,7 @@ set(FILE "${PATH}/yolov3_416_trt.prototxt")
 message(STATUS "Checking and downloading yolov3_416_trt.prototxt")
 if (NOT EXISTS "${FILE}")
   message(STATUS "... file does not exist. Downloading now ...")
-  execute_process(COMMAND wget "https://drive.google.com/uc?export=download&id=106bRoHNWYmCRXdrd6XRfxl3CNZ8M0BAS" -O ${PATH}/yolov3_416_trt.prototxt)
+  execute_process(COMMAND wget "https://drive.google.com/uc?export=download&id=19DCsuwfXOfm4L8QQlAhlOQJ0WL-3jo3q" -O ${PATH}/yolov3_416_trt.prototxt)
 endif()
 
 

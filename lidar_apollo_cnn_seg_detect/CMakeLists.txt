@@ -38,6 +38,26 @@ IF (CUDA_FOUND)
         link_directories(/usr/lib/arm-linux-gnueabihf/tegra)
     endif ()
 ENDIF ()
+
+# Download caffemodel and prototxt
+set(PATH "${CMAKE_CURRENT_SOURCE_DIR}/data")
+if (NOT EXISTS "${PATH}")
+  execute_process(COMMAND mkdir -p ${PATH})
+endif()
+set(FILE "${PATH}/apollo_cnn.caffemodel")
+message(STATUS "Checking and downloading apollo_cnn.caffemodel")
+if (NOT EXISTS "${FILE}")
+  message(STATUS "... file does not exist. Downloading now ...")
+  execute_process(COMMAND wget "https://drive.google.com/uc?export=download&id=1Md3qOLcW6nWSLvnnZH3aHEEJPvblCBkY" -O ${PATH}/apollo_cnn.caffemodel)
+endif()
+set(FILE "${PATH}/apollo_cnn.prototxt")
+message(STATUS "Checking and downloading apollo_cnn.prototxt")
+if (NOT EXISTS "${FILE}")
+  message(STATUS "... file does not exist. Downloading now ...")
+  execute_process(COMMAND wget "https://drive.google.com/uc?export=download&id=1doEp46CV1uc7851w6iYfuxZiM6Uc0b_N" -O ${PATH}/apollo_cnn.prototxt)
+endif()
+
+
 ###CAFFE
 set(CAFFE_PATH "$ENV{HOME}/caffe/distribute")
 
