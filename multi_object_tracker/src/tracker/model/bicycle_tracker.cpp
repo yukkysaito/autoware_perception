@@ -34,8 +34,8 @@ BicycleTracker::BicycleTracker(const autoware_msgs::DynamicObject &object)
       filtered_vy_(0.0),
       v_filter_gain_(0.6),
       area_filter_gain_(0.8),
-      prediction_time(ros::Time::now()),
-      measurement_time(ros::Time::now())
+      prediction_time_(ros::Time::now()),
+      measurement_time_(ros::Time::now())
 {
     object_ = object;
     // area
@@ -44,12 +44,12 @@ BicycleTracker::BicycleTracker(const autoware_msgs::DynamicObject &object)
 
 bool BicycleTracker::predict(const ros::Time &time)
 {
-    double dt = (time - prediction_time).toSec();
+    double dt = (time - prediction_time_).toSec();
     if (dt < 0.0)
         dt = 0.0;
     filtered_posx_ += filtered_vx_ * dt;
     filtered_posy_ += filtered_vy_ * dt;
-    prediction_time = time;
+    prediction_time_ = time;
     return true;
 }
 bool BicycleTracker::measure(const autoware_msgs::DynamicObject &object, const ros::Time &time)
@@ -68,8 +68,8 @@ bool BicycleTracker::measure(const autoware_msgs::DynamicObject &object, const r
     filtered_area_ = area_filter_gain_ * filtered_area_ + (1.0 - area_filter_gain_) * utils::getArea(object.shape);
 
     // vx,vy
-    double dt = (time - measurement_time).toSec();
-    measurement_time = time;
+    double dt = (time - measurement_time_).toSec();
+    measurement_time_ = time;
     if (0.0 < dt)
     {
         double current_vel =
@@ -102,7 +102,7 @@ bool BicycleTracker::measure(const autoware_msgs::DynamicObject &object, const r
 bool BicycleTracker::getEstimatedDynamicObject(autoware_msgs::DynamicObject &object)
 {
     object = object_;
-    object.id = unique_id::toMsg(uuid_);
+    object.id = unique_id::toMsg(getUUID());
     object.semantic.type = getType();
 
     object.state.pose.pose.position.x = filtered_posx_;

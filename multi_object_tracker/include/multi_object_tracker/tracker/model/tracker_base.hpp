@@ -25,6 +25,11 @@
 class Tracker
 {
 protected:
+  boost::uuids::uuid getUUID() { return uuid_; }
+  void setType(int type) { type_ = type; }
+  virtual bool measure(const autoware_msgs::DynamicObject &object, const ros::Time &time) = 0;
+
+private:
   boost::uuids::uuid uuid_;
   int type_;
   int no_measurement_count_;
@@ -32,26 +37,10 @@ protected:
   ros::Time last_update_with_measurement_time_;
 
 public:
-  Tracker(const int type) : uuid_(unique_id::fromRandom()),
-                                                                        type_(type),
-                                                                        no_measurement_count_(0),
-                                                                        total_measurement_count_(1),
-                                                                        last_update_with_measurement_time_(ros::Time::now()) {}
-  bool updateWithMeasurement(const autoware_msgs::DynamicObject &object, const ros::Time &measurement_time)
-  {
-    no_measurement_count_ = 0;
-    ++total_measurement_count_;
-    last_update_with_measurement_time_ = measurement_time;
-    measure(object, measurement_time);
-    return true;
-  }
-  bool updateWithoutMeasurement()
-  {
-    ++no_measurement_count_;
-    return true;
-  }
+  Tracker(const int type);
+  bool updateWithMeasurement(const autoware_msgs::DynamicObject &object, const ros::Time &measurement_time);
+  bool updateWithoutMeasurement();
   int getType() { return type_; }
-  void setType(int type) { type_ = type; }
   int getNoMeasurementCount() { return no_measurement_count_; }
   int getTotalMeasurementCount() { return total_measurement_count_; }
   double getElapsedTimeFromLastUpdate() { return (ros::Time::now() - last_update_with_measurement_time_).toSec(); }
@@ -59,6 +48,5 @@ public:
   virtual geometry_msgs::Point getPosition() = 0;
   virtual double getArea() = 0;
   virtual bool predict(const ros::Time &time) = 0;
-  virtual bool measure(const autoware_msgs::DynamicObject &object, const ros::Time &time) = 0;
   virtual ~Tracker(){};
 };

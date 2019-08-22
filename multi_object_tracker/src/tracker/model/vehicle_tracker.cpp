@@ -39,8 +39,8 @@ VehicleTracker::VehicleTracker(const autoware_msgs::DynamicObject &object)
       filtered_vy_(0.0),
       v_filter_gain_(0.7),
       area_filter_gain_(0.8),
-      prediction_time(ros::Time::now()),
-      measurement_time(ros::Time::now())
+      prediction_time_(ros::Time::now()),
+      measurement_time_(ros::Time::now())
 {
     object_ = object;
     // yaw
@@ -66,7 +66,7 @@ VehicleTracker::VehicleTracker(const autoware_msgs::DynamicObject &object)
 
 bool VehicleTracker::predict(const ros::Time &time)
 {
-    double dt = (time - prediction_time).toSec();
+    double dt = (time - prediction_time_).toSec();
     if (dt < 0.0)
         dt = 0.0;
     double vel = std::cos(filtered_yaw_) * filtered_vx_ + std::sin(filtered_yaw_) * filtered_vy_;
@@ -84,7 +84,7 @@ bool VehicleTracker::predict(const ros::Time &time)
         // filtered_posx_ += filtered_vx_ * dt;
         // filtered_posy_ += filtered_vy_ * dt;
     }
-    prediction_time = time;
+    prediction_time_ = time;
     return true;
 }
 bool VehicleTracker::measure(const autoware_msgs::DynamicObject &object, const ros::Time &time)
@@ -152,8 +152,8 @@ bool VehicleTracker::measure(const autoware_msgs::DynamicObject &object, const r
     filtered_area_ = area_filter_gain_ * filtered_area_ + (1.0 - area_filter_gain_) * utils::getArea(object.shape);
 
     // vx,vy
-    double dt = (time - measurement_time).toSec();
-    measurement_time = time;
+    double dt = (time - measurement_time_).toSec();
+    measurement_time_ = time;
     if (0.0 < dt)
     {
         double current_vel =
@@ -190,7 +190,7 @@ bool VehicleTracker::measure(const autoware_msgs::DynamicObject &object, const r
 bool VehicleTracker::getEstimatedDynamicObject(autoware_msgs::DynamicObject &object)
 {
     object = object_;
-    object.id = unique_id::toMsg(uuid_);
+    object.id = unique_id::toMsg(getUUID());
     object.semantic.type = getType();
 
     if (object.shape.type == autoware_msgs::Shape::BOUNDING_BOX)

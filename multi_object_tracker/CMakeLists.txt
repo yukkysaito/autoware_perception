@@ -40,6 +40,7 @@ add_executable(multi_object_tracker_node
                src/main.cpp
                src/node.cpp
                src/utils/utils.cpp
+               src/tracker/model/tracker_base.cpp
                src/tracker/model/vehicle_tracker.cpp
                src/tracker/model/bicycle_tracker.cpp
                src/tracker/model/pedestrian_tracker.cpp

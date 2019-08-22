@@ -80,10 +80,10 @@ void MultiObjectTrackerNode::measurementCallback(const autoware_msgs::DynamicObj
     }
 
     /* tracker prediction */
-    ros::Time current_time = ros::Time::now();
+    ros::Time measuremet_time = input_objects_msg->header.stamp;
     for (auto itr = list_tracker_.begin(); itr != list_tracker_.end(); ++itr)
     {
-        (*itr)->predict(current_time);
+        (*itr)->predict(measuremet_time);
     }
 
     /* life cycle check */
@@ -101,9 +101,9 @@ void MultiObjectTrackerNode::measurementCallback(const autoware_msgs::DynamicObj
     {
         if (direct_assignment.find(tracker_idx) != direct_assignment.end()) // found
         {
-            (*(tracker_itr))->updateWithMeasurement(input_transformed_objects.feature_objects.at(direct_assignment.find(tracker_idx)->second).object, current_time);
+            (*(tracker_itr))->updateWithMeasurement(input_transformed_objects.feature_objects.at(direct_assignment.find(tracker_idx)->second).object, measuremet_time);
         }
-        else
+        else // not found
         {
             (*(tracker_itr))->updateWithoutMeasurement();
         }
