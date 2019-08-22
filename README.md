@@ -17,6 +17,6 @@
 ## How to use TensorRT YOLOv3
 2019/05/01
 when run catkin_make, automaticaly download caffemodel and prototxt. but you need to install tensorrt.
-## How to use TensorRT baidu_cnn_seg
+## How to use baidu_cnn_seg
 2019/08/21
 when run catkin_make, automaticaly download caffemodel and prototxt. but you need to install caffe.
