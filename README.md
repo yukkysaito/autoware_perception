@@ -11,7 +11,7 @@
    ```roslaunch perception_launch perception.launch mode:="camera_lidar_fusion"```
  - only lidar
   ```roslaunch perception_launch perception.launch mode:="lidar"```
- - only camera
+ - only camera (currently not implemented)
   ```roslaunch perception_launch perception.launch mode:="camera"```
 
 ## How to use TensorRT YOLOv3
