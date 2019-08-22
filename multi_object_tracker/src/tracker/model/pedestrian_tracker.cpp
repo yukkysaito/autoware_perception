@@ -26,16 +26,16 @@
 #include <Eigen/Core>
 #include <Eigen/Geometry>
 
-PedestrianTracker::PedestrianTracker(const autoware_msgs::DynamicObject &object)
-    : Tracker(object.semantic.type),
+PedestrianTracker::PedestrianTracker(const ros::Time &time, const autoware_msgs::DynamicObject &object)
+    : Tracker(time, object.semantic.type),
       filtered_posx_(object.state.pose.pose.position.x),
       filtered_posy_(object.state.pose.pose.position.y),
       filtered_vx_(0.0),
       filtered_vy_(0.0),
       v_filter_gain_(0.6),
       area_filter_gain_(0.8),
-      prediction_time_(ros::Time::now()),
-      measurement_time_(ros::Time::now())
+      prediction_time_(time),
+      measurement_time_(time)
 {
     object_ = object;
     // area
@@ -99,7 +99,7 @@ bool PedestrianTracker::measure(const autoware_msgs::DynamicObject &object, cons
     return true;
 }
 
-bool PedestrianTracker::getEstimatedDynamicObject(autoware_msgs::DynamicObject &object)
+bool PedestrianTracker::getEstimatedDynamicObject(const ros::Time &time, autoware_msgs::DynamicObject &object)
 {
     object = object_;
     object.id = unique_id::toMsg(getUUID());

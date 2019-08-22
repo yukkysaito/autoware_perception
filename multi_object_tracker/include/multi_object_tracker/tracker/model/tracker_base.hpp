@@ -37,16 +37,16 @@ private:
   ros::Time last_update_with_measurement_time_;
 
 public:
-  Tracker(const int type);
+  Tracker(const ros::Time &time, const int type);
+  virtual ~Tracker(){};
   bool updateWithMeasurement(const autoware_msgs::DynamicObject &object, const ros::Time &measurement_time);
   bool updateWithoutMeasurement();
   int getType() { return type_; }
   int getNoMeasurementCount() { return no_measurement_count_; }
   int getTotalMeasurementCount() { return total_measurement_count_; }
   double getElapsedTimeFromLastUpdate() { return (ros::Time::now() - last_update_with_measurement_time_).toSec(); }
-  virtual bool getEstimatedDynamicObject(autoware_msgs::DynamicObject &object) = 0;
   virtual geometry_msgs::Point getPosition() = 0;
   virtual double getArea() = 0;
+  virtual bool getEstimatedDynamicObject(const ros::Time &time, autoware_msgs::DynamicObject &object) = 0;
   virtual bool predict(const ros::Time &time) = 0;
-  virtual ~Tracker(){};
 };

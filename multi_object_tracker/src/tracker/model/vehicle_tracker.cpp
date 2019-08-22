@@ -26,8 +26,8 @@
 #include <Eigen/Core>
 #include <Eigen/Geometry>
 
-VehicleTracker::VehicleTracker(const autoware_msgs::DynamicObject &object)
-    : Tracker(object.semantic.type),
+VehicleTracker::VehicleTracker(const ros::Time &time, const autoware_msgs::DynamicObject &object)
+    : Tracker(time,     object.semantic.type),
       filtered_yaw_(0.0),
       yaw_filter_gain_(0.7),
       is_fixed_yaw_(object.state.pose_reliable),
@@ -39,8 +39,8 @@ VehicleTracker::VehicleTracker(const autoware_msgs::DynamicObject &object)
       filtered_vy_(0.0),
       v_filter_gain_(0.7),
       area_filter_gain_(0.8),
-      prediction_time_(ros::Time::now()),
-      measurement_time_(ros::Time::now())
+      prediction_time_(time),
+      measurement_time_(time)
 {
     object_ = object;
     // yaw
@@ -187,7 +187,7 @@ bool VehicleTracker::measure(const autoware_msgs::DynamicObject &object, const r
     return true;
 }
 
-bool VehicleTracker::getEstimatedDynamicObject(autoware_msgs::DynamicObject &object)
+bool VehicleTracker::getEstimatedDynamicObject(const ros::Time &time, autoware_msgs::DynamicObject &object)
 {
     object = object_;
     object.id = unique_id::toMsg(getUUID());

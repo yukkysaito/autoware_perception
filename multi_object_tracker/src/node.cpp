@@ -119,16 +119,16 @@ void MultiObjectTrackerNode::measurementCallback(const autoware_msgs::DynamicObj
             input_transformed_objects.feature_objects.at(i).object.semantic.type == autoware_msgs::Semantic::TRUCK ||
             input_transformed_objects.feature_objects.at(i).object.semantic.type == autoware_msgs::Semantic::BUS)
         {
-            list_tracker_.push_back(std::make_shared<VehicleTracker>(input_transformed_objects.feature_objects.at(i).object));
+            list_tracker_.push_back(std::make_shared<VehicleTracker>(measuremet_time, input_transformed_objects.feature_objects.at(i).object));
         }
         else if (input_transformed_objects.feature_objects.at(i).object.semantic.type == autoware_msgs::Semantic::PEDESTRIAN)
         {
-            list_tracker_.push_back(std::make_shared<PedestrianTracker>(input_transformed_objects.feature_objects.at(i).object));
+            list_tracker_.push_back(std::make_shared<PedestrianTracker>(measuremet_time, input_transformed_objects.feature_objects.at(i).object));
         }
         else if (input_transformed_objects.feature_objects.at(i).object.semantic.type == autoware_msgs::Semantic::BICYCLE ||
                  input_transformed_objects.feature_objects.at(i).object.semantic.type == autoware_msgs::Semantic::MOTORBIKE)
         {
-            list_tracker_.push_back(std::make_shared<BicycleTracker>(input_transformed_objects.feature_objects.at(i).object));
+            list_tracker_.push_back(std::make_shared<BicycleTracker>(measuremet_time, input_transformed_objects.feature_objects.at(i).object));
         }
         else
         {
@@ -144,11 +144,10 @@ void MultiObjectTrackerNode::publishTimerCallback(const ros::TimerEvent &e)
         return;
 
     /* tracker prediction */
-    ros::Time current_time = ros::Time::now();
-    for (auto itr = list_tracker_.begin(); itr != list_tracker_.end(); ++itr)
-    {
-        (*itr)->predict(current_time);
-    }
+    // for (auto itr = list_tracker_.begin(); itr != list_tracker_.end(); ++itr)
+    // {
+    //     (*itr)->predict(current_time);
+    // }
 
     /* life cycle check */
     for (auto itr = list_tracker_.begin(); itr != list_tracker_.end(); ++itr)
@@ -162,16 +161,16 @@ void MultiObjectTrackerNode::publishTimerCallback(const ros::TimerEvent &e)
     }
 
     // Create output msg
+    ros::Time current_time = ros::Time::now();
     autoware_msgs::DynamicObjectArray output_msg;
     output_msg.header.frame_id = world_frame_id_;
-    // output_msg.header.frame_id = "velodyne"; // TODO
     output_msg.header.stamp = current_time;
     for (auto itr = list_tracker_.begin(); itr != list_tracker_.end(); ++itr)
     {
         if ((*itr)->getTotalMeasurementCount() < 3)
             continue;
         autoware_msgs::DynamicObject object;
-        (*itr)->getEstimatedDynamicObject(object);
+        (*itr)->getEstimatedDynamicObject(current_time, object);
         output_msg.objects.push_back(object);
     }
 

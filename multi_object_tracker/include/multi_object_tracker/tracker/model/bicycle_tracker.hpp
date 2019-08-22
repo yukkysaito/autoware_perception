@@ -36,11 +36,11 @@ private:
   ros::Time measurement_time_;
 
 public:
-  BicycleTracker(const autoware_msgs::DynamicObject &object);
+  BicycleTracker(const ros::Time &time, const autoware_msgs::DynamicObject &object);
 
   bool predict(const ros::Time &time) override;
   bool measure(const autoware_msgs::DynamicObject &object, const ros::Time &time) override;
-  bool getEstimatedDynamicObject(autoware_msgs::DynamicObject &object) override;
+  bool getEstimatedDynamicObject(const ros::Time &time, autoware_msgs::DynamicObject &object) override;
   geometry_msgs::Point getPosition() override;
   double getArea() override;
   virtual ~BicycleTracker(){};

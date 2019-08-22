@@ -19,11 +19,11 @@
 
 #include "multi_object_tracker/tracker/model/tracker_base.hpp"
 
-  Tracker::Tracker(const int type) : uuid_(unique_id::fromRandom()),
+  Tracker::Tracker(const ros::Time &time, const int type) : uuid_(unique_id::fromRandom()),
                             type_(type),
                             no_measurement_count_(0),
                             total_measurement_count_(1),
-                            last_update_with_measurement_time_(ros::Time::now()) {}
+                            last_update_with_measurement_time_(time) {}
 
 bool Tracker::updateWithMeasurement(const autoware_msgs::DynamicObject &object, const ros::Time &measurement_time)
 {
