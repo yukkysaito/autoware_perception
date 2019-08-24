@@ -48,7 +48,5 @@ public:
   bool predict(const ros::Time &time) override;
   bool measure(const autoware_msgs::DynamicObject &object, const ros::Time &time) override;
   bool getEstimatedDynamicObject(const ros::Time &time, autoware_msgs::DynamicObject &object) override;
-  geometry_msgs::Point getPosition() override;
-  double getArea() override;
   virtual ~VehicleTracker(){};
 };

@@ -27,7 +27,6 @@ class Tracker
 protected:
   boost::uuids::uuid getUUID() { return uuid_; }
   void setType(int type) { type_ = type; }
-  virtual bool measure(const autoware_msgs::DynamicObject &object, const ros::Time &time) = 0;
 
 private:
   boost::uuids::uuid uuid_;
@@ -45,8 +44,16 @@ public:
   int getNoMeasurementCount() { return no_measurement_count_; }
   int getTotalMeasurementCount() { return total_measurement_count_; }
   double getElapsedTimeFromLastUpdate() { return (ros::Time::now() - last_update_with_measurement_time_).toSec(); }
-  virtual geometry_msgs::Point getPosition() = 0;
-  virtual double getArea() = 0;
+  virtual geometry_msgs::Point getPosition(const ros::Time &time);
+  virtual double getArea(const ros::Time &time);
+
+  /*
+   *　Pure virtual function
+   */
+protected:
+  virtual bool measure(const autoware_msgs::DynamicObject &object, const ros::Time &time) = 0;
+
+public:
   virtual bool getEstimatedDynamicObject(const ros::Time &time, autoware_msgs::DynamicObject &object) = 0;
   virtual bool predict(const ros::Time &time) = 0;
 };

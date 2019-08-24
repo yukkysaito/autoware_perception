@@ -104,9 +104,11 @@ bool PedestrianTracker::getEstimatedDynamicObject(const ros::Time &time, autowar
     object = object_;
     object.id = unique_id::toMsg(getUUID());
     object.semantic.type = getType();
-
-    object.state.pose.pose.position.x = filtered_posx_;
-    object.state.pose.pose.position.y = filtered_posy_;
+    double dt = (time - prediction_time_).toSec();
+    if (dt < 0.0)
+        dt = 0.0;
+    object.state.pose.pose.position.x += filtered_vx_ * dt;
+    object.state.pose.pose.position.y += filtered_vy_ * dt;
 
     object.state.pose_reliable = false;
 
@@ -122,16 +124,16 @@ bool PedestrianTracker::getEstimatedDynamicObject(const ros::Time &time, autowar
     return true;
 }
 
-geometry_msgs::Point PedestrianTracker::getPosition()
-{
-    geometry_msgs::Point position;
-    position.x = filtered_posx_;
-    position.y = filtered_posy_;
-    position.z = object_.state.pose.pose.position.z;
-    return position;
-}
+// geometry_msgs::Point PedestrianTracker::getPosition(const ros::Time &time)
+// {
+//     geometry_msgs::Point position;
+//     position.x = filtered_posx_;
+//     position.y = filtered_posy_;
+//     position.z = object_.state.pose.pose.position.z;
+//     return position;
+// }
 
-double PedestrianTracker::getArea()
-{
-    return filtered_area_;
-}
+// double PedestrianTracker::getArea()
+// {
+//     return filtered_area_;
+// }

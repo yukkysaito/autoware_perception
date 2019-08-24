@@ -27,7 +27,7 @@
 #include <Eigen/Geometry>
 
 VehicleTracker::VehicleTracker(const ros::Time &time, const autoware_msgs::DynamicObject &object)
-    : Tracker(time,     object.semantic.type),
+    : Tracker(time, object.semantic.type),
       filtered_yaw_(0.0),
       yaw_filter_gain_(0.7),
       is_fixed_yaw_(object.state.pose_reliable),
@@ -209,8 +209,21 @@ bool VehicleTracker::getEstimatedDynamicObject(const ros::Time &time, autoware_m
         object.shape.dimensions.x = filtered_dim_x_;
         object.shape.dimensions.y = filtered_dim_y_;
     }
-    object.state.pose.pose.position.x = filtered_posx_;
-    object.state.pose.pose.position.y = filtered_posy_;
+
+    double dt = (time - prediction_time_).toSec();
+    if (dt < 0.0)
+        dt = 0.0;
+    double vel = std::cos(filtered_yaw_) * filtered_vx_ + std::sin(filtered_yaw_) * filtered_vy_;
+    if (vel < 0.0 && !is_fixed_yaw_)
+    {
+        object.state.pose.pose.position.x += std::cos(filtered_yaw_ + M_PI) * std::fabs(vel) * dt;
+        object.state.pose.pose.position.y += std::sin(filtered_yaw_ + M_PI) * std::fabs(vel) * dt;
+    }
+    else
+    {
+        object.state.pose.pose.position.x += std::cos(filtered_yaw_) * vel * dt;
+        object.state.pose.pose.position.y += std::sin(filtered_yaw_) * vel * dt;
+    }
 
     double roll, pitch, yaw;
     tf2::Quaternion quaternion;
@@ -231,16 +244,16 @@ bool VehicleTracker::getEstimatedDynamicObject(const ros::Time &time, autoware_m
     return true;
 }
 
-geometry_msgs::Point VehicleTracker::getPosition()
-{
-    geometry_msgs::Point position;
-    position.x = filtered_posx_;
-    position.y = filtered_posy_;
-    position.z = object_.state.pose.pose.position.z;
-    return position;
-}
+// geometry_msgs::Point VehicleTracker::getPosition(const ros::Time &time)
+// {
+//     geometry_msgs::Point position;
+//     position.x = filtered_posx_;
+//     position.y = filtered_posy_;
+//     position.z = object_.state.pose.pose.position.z;
+//     return position;
+// }
 
-double VehicleTracker::getArea()
-{
-    return filtered_area_;
-}
+// double VehicleTracker::getArea()
+// {
+//     return filtered_area_;
+// }

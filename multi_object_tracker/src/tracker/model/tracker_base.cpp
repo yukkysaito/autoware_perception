@@ -18,12 +18,13 @@
  */
 
 #include "multi_object_tracker/tracker/model/tracker_base.hpp"
+#include "multi_object_tracker/utils/utils.hpp"
 
-  Tracker::Tracker(const ros::Time &time, const int type) : uuid_(unique_id::fromRandom()),
-                            type_(type),
-                            no_measurement_count_(0),
-                            total_measurement_count_(1),
-                            last_update_with_measurement_time_(time) {}
+Tracker::Tracker(const ros::Time &time, const int type) : uuid_(unique_id::fromRandom()),
+                                                          type_(type),
+                                                          no_measurement_count_(0),
+                                                          total_measurement_count_(1),
+                                                          last_update_with_measurement_time_(time) {}
 
 bool Tracker::updateWithMeasurement(const autoware_msgs::DynamicObject &object, const ros::Time &measurement_time)
 {
@@ -38,4 +39,22 @@ bool Tracker::updateWithoutMeasurement()
 {
     ++no_measurement_count_;
     return true;
+}
+
+geometry_msgs::Point Tracker::getPosition(const ros::Time &time)
+{
+    autoware_msgs::DynamicObject object;
+    getEstimatedDynamicObject(time, object);
+    geometry_msgs::Point position;
+    position.x = object.state.pose.pose.position.x;
+    position.y = object.state.pose.pose.position.y;
+    position.z = object.state.pose.pose.position.z;
+    return position;
+}
+
+double Tracker::getArea(const ros::Time &time)
+{
+    autoware_msgs::DynamicObject object;
+    getEstimatedDynamicObject(time, object);
+    return utils::getArea(object.shape);
 }
