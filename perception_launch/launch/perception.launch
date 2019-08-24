@@ -2,7 +2,7 @@
 
 <launch>
     <!-- common parameters -->
-    <arg name="mode" default="lidar"/>  <!-- "camera_lidar_fusion", "lidar" or "camera" -->
+    <arg name="mode" default="camera_lidar_fusion"/>  <!-- "camera_lidar_fusion", "lidar" or "camera" -->
     <arg name="image_raw0" default="/image_raw"/>
     <arg name="camera_info0" default="/camera_info"/>
     <arg name="image_raw1" default=""/>
