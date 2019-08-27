@@ -1,0 +1,38 @@
+---
+- name: Caffe (install dependencies for building packages)
+  apt:
+    name: "{{ item }}"
+    state: latest
+    update_cache: yes
+  with_items:
+    - libhdf5-serial-dev
+    - liblmdb-dev
+
+- name: testaaa
+  debug:
+    msg: "{{ role_path }}/caffe"
+
+- name: Caffe (clone repository)
+  become: no
+  git:
+    repo: https://github.com/BVLC/caffe.git
+    dest: "{{ role_path }}/caffe"
+
+- name: Caffe (make build dir)
+  become: no
+  file: 
+    path: "{{ role_path }}/caffe/{{ item }}"
+    state: directory
+  with_items:
+    - build
+
+- name: Caffe (cmake)
+  become: no
+  command: cmake .. chdir={{ role_path }}/caffe/build
+
+- name: Caffe (make all)
+  become: no
+  command: make all
+  args:
+    chdir: "{{ role_path }}/caffe/build"
+
