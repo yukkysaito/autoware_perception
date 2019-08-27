@@ -2,7 +2,7 @@
 <launch>
   <arg name="network_definition_file" default="$(find lidar_apollo_cnn_seg_detect)/data/apollo_cnn.prototxt" />
   <arg name="pretrained_model_file" default="$(find lidar_apollo_cnn_seg_detect)/data/apollo_cnn.caffemodel" />
-  <arg name="points_src" default="/points_raw" />
+  <arg name="points_src" default="/points_raw/filtered" />
   <!-- <arg name="points_src" default="/velodyne_points" /> -->
   <arg name="score_threshold" default="0.6" />
   <arg name="use_gpu" default="true" />
@@ -17,7 +17,7 @@
     <param name="gpu_device_id" value="$(arg gpu_device_id)" />
   </node>
 
-  <node pkg="detected_objects_visualizer" type="visualize_detected_objects" name="cluster_detect_visualization_01"
-          output="screen" ns="/detection/lidar_detector" />
+  <!-- <node pkg="detected_objects_visualizer" type="visualize_detected_objects" name="cluster_detect_visualization_01"
+          output="screen" ns="/detection/lidar_detector" /> -->
 
 </launch>
