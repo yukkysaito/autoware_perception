@@ -8,10 +8,6 @@
     - libhdf5-serial-dev
     - liblmdb-dev
 
-- name: testaaa
-  debug:
-    msg: "{{ role_path }}/caffe"
-
 - name: Caffe (clone repository)
   become: no
   git:
@@ -36,3 +32,42 @@
   args:
     chdir: "{{ role_path }}/caffe/build"
 
+- name: Caffe (confirm install)
+  pause: prompt="install to /usr/local/caffe？ (y/n)"
+  register: yn
+
+- name: abort
+  fail: msg="Aborted!!"
+  when: yn.user_input != 'y'
+
+- name: Caffe (make install dir)
+  become: yes
+  file: 
+    path: "/usr/local/{{ item }}"
+    state: directory
+  with_items:
+    - caffe
+
+- name: Caffe (install pb header file)
+  become: yes
+  copy:
+    src: "{{ role_path }}/caffe/build/include"
+    dest: /usr/local/caffe/
+    mode: 0755
+  when: yn.user_input == 'y'
+
+- name: Caffe (install header files)
+  become: yes
+  copy:
+    src: "{{ role_path }}/caffe/include"
+    dest: /usr/local/caffe/
+    mode: 0755
+  when: yn.user_input == 'y'
+
+- name: Caffe (link lib files)
+  become: yes
+  copy:
+    src: "{{ role_path }}/caffe/build/lib"
+    dest: /usr/local/caffe/
+    mode: 0755
+  when: yn.user_input == 'y'

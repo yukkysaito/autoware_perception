@@ -59,7 +59,7 @@ endif()
 
 
 ###CAFFE
-set(CAFFE_PATH "$ENV{HOME}/caffe/distribute")
+set(CAFFE_PATH "/usr/local/caffe")
 
 if (EXISTS "${CAFFE_PATH}")
 
