@@ -1,0 +1,3 @@
+[submodule "lidar_apollo_cnn_seg_detect/caffe"]
+	path = lidar_apollo_cnn_seg_detect/caffe
+	url = https://github.com/BVLC/caffe.git
