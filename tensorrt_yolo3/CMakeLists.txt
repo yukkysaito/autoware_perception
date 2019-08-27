@@ -49,6 +49,26 @@ else()
   set(CUDNN_AVAIL OFF)
 endif()
 
+# Download caffemodel and prototxt
+set(PATH "${CMAKE_CURRENT_SOURCE_DIR}/data")
+if (NOT EXISTS "${PATH}")
+  execute_process(COMMAND mkdir -p ${PATH})
+endif()
+set(FILE "${PATH}/yolov3_416.caffemodel")
+message(STATUS "Checking and downloading yolov3_416.caffemodel")
+if (NOT EXISTS "${FILE}")
+  message(STATUS "... file does not exist. Downloading now ...")
+  execute_process(COMMAND wget --no-check-certificate "https://onedrive.live.com/download?cid=707D1E12CC298F03&resid=707D1E12CC298F03%21118772&authkey=AEeI4E33pFiXkoY" -O ${PATH}/yolov3_416.caffemodel)
+  
+  endif()
+set(FILE "${PATH}/yolov3_416_trt.prototxt")
+message(STATUS "Checking and downloading yolov3_416_trt.prototxt")
+if (NOT EXISTS "${FILE}")
+  message(STATUS "... file does not exist. Downloading now ...")
+  execute_process(COMMAND wget "https://drive.google.com/uc?export=download&id=19DCsuwfXOfm4L8QQlAhlOQJ0WL-3jo3q" -O ${PATH}/yolov3_416_trt.prototxt)
+endif()
+
+
 if(TRT_AVAIL AND CUDA_AVAIL AND CUDNN_AVAIL)
 
   find_package(catkin REQUIRED COMPONENTS
@@ -73,26 +93,6 @@ if(TRT_AVAIL AND CUDA_AVAIL AND CUDNN_AVAIL)
 #    tf2
 #    tf2_geometry_msgs
    )
-
-# Download yolov3.weights
-set(PATH "${CMAKE_CURRENT_SOURCE_DIR}/data")
-if (NOT EXISTS "${PATH}")
-  execute_process(COMMAND mkdir -p ${PATH})
-endif()
-set(FILE "${PATH}/yolov3_416.caffemodel")
-message(STATUS "Checking and downloading yolov3_416.caffemodel")
-if (NOT EXISTS "${FILE}")
-  message(STATUS "... file does not exist. Downloading now ...")
-  execute_process(COMMAND wget --no-check-certificate "https://onedrive.live.com/download?cid=707D1E12CC298F03&resid=707D1E12CC298F03%21118772&authkey=AEeI4E33pFiXkoY" -O ${PATH}/yolov3_416.caffemodel)
-  
-  endif()
-set(FILE "${PATH}/yolov3_416_trt.prototxt")
-message(STATUS "Checking and downloading yolov3_416_trt.prototxt")
-if (NOT EXISTS "${FILE}")
-  message(STATUS "... file does not exist. Downloading now ...")
-  execute_process(COMMAND wget "https://drive.google.com/uc?export=download&id=19DCsuwfXOfm4L8QQlAhlOQJ0WL-3jo3q" -O ${PATH}/yolov3_416_trt.prototxt)
-endif()
-
 
   include_directories(
    include
