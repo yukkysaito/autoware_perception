@@ -143,12 +143,6 @@ void MultiObjectTrackerNode::publishTimerCallback(const ros::TimerEvent &e)
     if (pub_.getNumSubscribers() < 1)
         return;
 
-    /* tracker prediction */
-    // for (auto itr = list_tracker_.begin(); itr != list_tracker_.end(); ++itr)
-    // {
-    //     (*itr)->predict(current_time);
-    // }
-
     /* life cycle check */
     for (auto itr = list_tracker_.begin(); itr != list_tracker_.end(); ++itr)
     {

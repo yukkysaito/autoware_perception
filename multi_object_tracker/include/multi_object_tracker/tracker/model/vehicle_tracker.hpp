@@ -39,8 +39,10 @@ private:
   double v_filter_gain_;
   double filtered_area_;
   double area_filter_gain_;
-  ros::Time prediction_time_;
-  ros::Time measurement_time_;
+  double last_measurement_posx_;
+  double last_measurement_posy_;
+  ros::Time last_update_time_;
+  ros::Time last_measurement_time_;
 
 public:
   VehicleTracker(const ros::Time &time, const autoware_msgs::DynamicObject &object);
