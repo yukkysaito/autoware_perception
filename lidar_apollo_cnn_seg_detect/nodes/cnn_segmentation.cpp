@@ -271,13 +271,25 @@ void CNNSegmentation::convertDetected2Dynamic(
   {
     autoware_msgs::DynamicObjectWithFeature d_object;
     // d_object.object.state.pose.pose = object.pose;
-    if(object.label == "person" || object.label == "bike" || object.label == "bicycle")
+    if(object.label == "person")
     {
       d_object.object.semantic.type = d_object.object.semantic.PEDESTRIAN;
     }
-    else if(object.label == "car" || object.label == "bus" || object.label == "track" )
+    else if(object.label == "bike" || object.label == "bicycle")
+    {
+      d_object.object.semantic.type = d_object.object.semantic.BICYCLE;
+    }
+    else if(object.label == "car")
     {
       d_object.object.semantic.type = d_object.object.semantic.CAR;
+    }
+    else if(object.label == "truck" )
+    {
+      d_object.object.semantic.type = d_object.object.semantic.TRUCK;
+    }
+    else if(object.label == "bus")
+    {
+      d_object.object.semantic.type = d_object.object.semantic.BUS;
     }
     else
     {

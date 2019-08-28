@@ -96,7 +96,7 @@ struct Obstacle
       case META_SMALLMOT:
         return "car";
       case META_BIGMOT:
-        return "car";
+        return "bus";
       case META_NONMOT:
         return "bike";
       case META_PEDESTRIAN:
