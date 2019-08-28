@@ -34,6 +34,8 @@ PedestrianTracker::PedestrianTracker(const ros::Time &time, const autoware_msgs:
       filtered_vy_(0.0),
       v_filter_gain_(0.6),
       area_filter_gain_(0.8),
+      last_measurement_posx_(object.state.pose.pose.position.x),
+      last_measurement_posy_(object.state.pose.pose.position.y),
       last_update_time_(time),
       last_measurement_time_(time)
 {

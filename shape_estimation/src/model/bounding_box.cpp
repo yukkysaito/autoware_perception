@@ -308,7 +308,7 @@ double BoundingBoxModel::calcClosenessCriterion(const std::vector<double> &C_1, 
     D_2.push_back(v * v);
   }
 
-  const double d_min = 0.05;
+  const double d_min = 0.1;
   const double d_max = 0.20;
   double beta = 0; // col.6, Algo.4
   for (size_t i = 0; i < D_1.size(); ++i)
