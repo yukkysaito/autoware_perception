@@ -3,9 +3,10 @@ read answer
 sudo apt install cowsay -y
 if echo "$answer" | grep -iq "^y"
 then
-  cd ./ansible
+  SCRIPT_DIR=$(cd $(dirname $0); pwd)
+  cd $SCRIPT_DIR/ansible
   sudo apt install ansible
-	ansible-playbook -i localhost, ./localhost-setup-devpc.yml
+	ansible-playbook -i localhost, $SCRIPT_DIR/ansible/localhost-setup-devpc.yml
 	echo -e "\e[32mok: Complete \e[0m"
 else
     echo -e "\e[33merror: Cannot Complete \e[0m"
