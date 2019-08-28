@@ -95,7 +95,7 @@ bool BusCorrector::correct(autoware_msgs::Shape &shape_output,
     // rule based correction
     Eigen::Vector2d correction_vector = Eigen::Vector2d::Zero();
     constexpr double min_width = 2.0;
-    constexpr double max_width = 2.7;
+    constexpr double max_width = 2.9;
     constexpr double min_length = 5.0;
     constexpr double max_length = 12.0;
 

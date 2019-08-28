@@ -27,7 +27,7 @@ bool BusFilter::filter(const autoware_msgs::Shape &shape,
     double y = shape.dimensions.y;
     double s = x * y;
     constexpr double min_width = 2.0;
-    constexpr double max_width = 2.7;
+    constexpr double max_width = 2.9;
     constexpr double min_length = 5.0;
     constexpr double max_length = 12.0;
 

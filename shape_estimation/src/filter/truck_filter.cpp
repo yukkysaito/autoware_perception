@@ -27,7 +27,7 @@ bool TruckFilter::filter(const autoware_msgs::Shape &shape,
     double y = shape.dimensions.y;
     double s = x * y;
     constexpr double min_width = 1.5;
-    constexpr double max_width = 2.5;
+    constexpr double max_width = 2.9;
     constexpr double min_length = 4.0;
     constexpr double max_length = 7.9;
 
