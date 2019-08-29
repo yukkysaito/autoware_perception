@@ -45,7 +45,7 @@ void MultiObjectTrackerNode::measurementCallback(const autoware_msgs::DynamicObj
                                                  const geometry_msgs::PoseStamped::ConstPtr &input_current_pose_msg)
 {
     autoware_msgs::DynamicObjectWithFeatureArray input_transformed_objects = *input_objects_msg;
-
+    
     /* transform to world coordinate */
     if (input_objects_msg->header.frame_id != world_frame_id_)
     {
@@ -81,6 +81,7 @@ void MultiObjectTrackerNode::measurementCallback(const autoware_msgs::DynamicObj
 
     /* tracker prediction */
     ros::Time measuremet_time = input_objects_msg->header.stamp;
+    // ros::Time measuremet_time = ros::Time::now();
     for (auto itr = list_tracker_.begin(); itr != list_tracker_.end(); ++itr)
     {
         (*itr)->predict(measuremet_time);
