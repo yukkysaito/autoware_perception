@@ -186,13 +186,13 @@ bool VehicleTracker::measure(const autoware_msgs::DynamicObject &object, const r
     }
 
     // pos x, pos y
-    filtered_posx_ = object.state.pose.pose.position.x;
-    filtered_posy_ = object.state.pose.pose.position.y;
+    // filtered_posx_ = object.state.pose.pose.position.x;
+    // filtered_posy_ = object.state.pose.pose.position.y;
     last_measurement_posx_ = object.state.pose.pose.position.x;
     last_measurement_posy_ = object.state.pose.pose.position.y;
-    // filtered_posx_ = pos_filter_gain_ * filtered_posx_ + (1.0 - pos_filter_gain_) * object.state.pose.pose.position.x;
-    // filtered_posy_ = pos_filter_gain_ * filtered_posy_ + (1.0 - pos_filter_gain_) * object.state.pose.pose.position.y;
-    // pos_filter_gain_ = std::min(0.95, pos_filter_gain_ + 0.05);
+    filtered_posx_ = pos_filter_gain_ * filtered_posx_ + (1.0 - pos_filter_gain_) * object.state.pose.pose.position.x;
+    filtered_posy_ = pos_filter_gain_ * filtered_posy_ + (1.0 - pos_filter_gain_) * object.state.pose.pose.position.y;
+    pos_filter_gain_ = std::min(0.8, pos_filter_gain_ + 0.05);
 
     return true;
 }
