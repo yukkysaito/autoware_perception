@@ -6,7 +6,13 @@
     update_cache: yes
   with_items:
     - libhdf5-serial-dev
+    - libgflags-dev
+    - libgoogle-glog-dev
     - liblmdb-dev
+    - libleveldb-dev
+    - libsnappy-dev
+    - protobuf-compiler
+    - libatlas-base-dev
 
 - name: Caffe (clone repository)
   become: no
