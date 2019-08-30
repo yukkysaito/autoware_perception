@@ -30,6 +30,7 @@ BicycleTracker::BicycleTracker(const ros::Time &time, const autoware_msgs::Dynam
     : Tracker(time, object.semantic.type),
       filtered_posx_(object.state.pose.pose.position.x),
       filtered_posy_(object.state.pose.pose.position.y),
+      pos_filter_gain_(0.2),
       filtered_vx_(0.0),
       filtered_vy_(0.0),
       v_filter_gain_(0.6),
@@ -96,12 +97,13 @@ bool BicycleTracker::measure(const autoware_msgs::DynamicObject &object, const r
     }
 
     // pos x, pos y
-    filtered_posx_ = object.state.pose.pose.position.x;
-    filtered_posy_ = object.state.pose.pose.position.y;
+    // filtered_posx_ = object.state.pose.pose.position.x;
+    // filtered_posy_ = object.state.pose.pose.position.y;
     last_measurement_posx_ = object.state.pose.pose.position.x;
     last_measurement_posy_ = object.state.pose.pose.position.y;
-    // filtered_posx_ = pos_filter_gain_ * filtered_posx_ + (1.0 - pos_filter_gain_) * object.state.pose.pose.position.x;
-    // filtered_posy_ = pos_filter_gain_ * filtered_posy_ + (1.0 - pos_filter_gain_) * object.state.pose.pose.position.y;
+    filtered_posx_ = pos_filter_gain_ * filtered_posx_ + (1.0 - pos_filter_gain_) * object.state.pose.pose.position.x;
+    filtered_posy_ = pos_filter_gain_ * filtered_posy_ + (1.0 - pos_filter_gain_) * object.state.pose.pose.position.y;
+    pos_filter_gain_ = std::min(0.8, pos_filter_gain_ + 0.05);
 
     return true;
 }
@@ -115,6 +117,9 @@ bool BicycleTracker::getEstimatedDynamicObject(const ros::Time &time, autoware_m
     double dt = (time - last_update_time_).toSec();
     if (dt < 0.0)
         dt = 0.0;
+
+    object.state.pose.pose.position.x = filtered_posx_;
+    object.state.pose.pose.position.y = filtered_posy_;
     object.state.pose.pose.position.x += filtered_vx_ * dt;
     object.state.pose.pose.position.y += filtered_vy_ * dt;
 
