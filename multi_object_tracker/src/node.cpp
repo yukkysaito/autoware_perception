@@ -30,7 +30,7 @@ MultiObjectTrackerNode::MultiObjectTrackerNode() : nh_(""), pnh_("~"), tf_listen
     // sub_ = nh_.subscribe("input", 1, &MultiObjectTrackerNode::measurementCallback, this);
     pub_ = nh_.advertise<autoware_msgs::DynamicObjectArray>("output", 1, true);
     double publish_rate;
-    pnh_.param<double>("publish_rate", publish_rate, double(10.0));
+    pnh_.param<double>("publish_rate", publish_rate, double(30.0));
     publish_timer_ = nh_.createTimer(ros::Duration(1.0 / publish_rate), &MultiObjectTrackerNode::publishTimerCallback, this);
     pnh_.param<std::string>("base_link_frame_id", base_link_frame_id_, std::string("base_link"));
     pnh_.param<std::string>("world_frame_id", world_frame_id_, std::string("world"));
@@ -61,7 +61,7 @@ void MultiObjectTrackerNode::measurementCallback(const autoware_msgs::DynamicObj
                                                                         input_transformed_objects.header.stamp);
             tf2::fromMsg(ros_current_pose2objects_world.transform, tf_current_pose2objects_world);
             geometry_msgs::TransformStamped ros_world2current_pose_world;
-            ros_world2current_pose_world = tf_buffer_.lookupTransform(/*target*/ world_frame_id_, /*src*/ "map", //input_current_pose_msg->header.frame_id,
+            ros_world2current_pose_world = tf_buffer_.lookupTransform(/*target*/ world_frame_id_, /*src*/ input_current_pose_msg->header.frame_id,
                                                                       input_current_pose_msg->header.stamp);
             tf2::fromMsg(ros_world2current_pose_world.transform, tf_world2current_pose_world);
         }

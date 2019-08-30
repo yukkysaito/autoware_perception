@@ -4,7 +4,7 @@
     <arg name="input/objects" default="/perception/detection/objects"/>
     <arg name="input/current_pose" default="/current_pose"/>
     <arg name="output/objects" default="objects"/>
-    <arg name="world_frame_id" default="map"/>
+    <arg name="world_frame_id" default="world"/>
 
     <node pkg="multi_object_tracker" type="multi_object_tracker_node" name="multi_object_tracker" output="screen">
         <remap from="input/objects" to="$(arg input/objects)"/>
