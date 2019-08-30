@@ -7,8 +7,10 @@
     <include file="$(find euclidean_cluster)/launch/euclidean_cluster.launch">
         <!-- <arg name="input/map" default="$(arg pointcloud_map)"/> -->
     </include>
+
     <!-- <include file="$(find lidar_apollo_cnn_seg_detect)/launch/lidar_apollo_cnn_seg_detect.launch" /> -->
     <include file="$(find shape_estimation)/launch/shape_estimation.launch">
+        <arg name="input/objects" default="clusters"/>
         <arg name="use_map_corrent" default="$(arg use_vector_map)"/>
         <arg name="output/objects" default="objects" />
     </include>

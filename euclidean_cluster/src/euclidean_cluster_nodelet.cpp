@@ -90,8 +90,6 @@ void EuclideanClusterNodelet::pointcloudCallback(const sensor_msgs::PointCloud2C
             pcl::toROSMsg(*cloud_cluster, ros_pointcloud);
             ros_pointcloud.header = input_msg->header;
             feature_object.feature.cluster = ros_pointcloud;
-            feature_object.object.semantic.type = autoware_msgs::Semantic::CAR;
-            feature_object.object.semantic.confidence = 1.0;
             output.feature_objects.push_back(feature_object);
         }
         cluster_pub_.publish(output);

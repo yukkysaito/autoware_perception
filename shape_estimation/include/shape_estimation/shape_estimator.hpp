@@ -23,6 +23,7 @@
 #include <pcl/point_cloud.h>
 #include <pcl_conversions/pcl_conversions.h>
 #include "autoware_msgs/Shape.h"
+#include "autoware_msgs/Semantic.h"
 #include "geometry_msgs/Pose.h"
 
 class ShapeEstimator

@@ -51,7 +51,10 @@ void ShapeEstimationNode::callback(const autoware_msgs::DynamicObjectWithFeature
     bool orientation;
     if (!estimator_.getShapeAndPose(feature_object.object.semantic.type, *cluster, shape, pose, orientation))
       continue;
+
     output_msg.feature_objects.push_back(feature_object);
+    output_msg.feature_objects.back().object.semantic.type = autoware_msgs::Semantic::MOTORBIKE;
+    output_msg.feature_objects.back().object.semantic.confidence = 1.0;
     output_msg.feature_objects.back().object.shape = shape;
     output_msg.feature_objects.back().object.state.pose.pose = pose;
     output_msg.feature_objects.back().object.state.pose_reliable = orientation;
