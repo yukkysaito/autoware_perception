@@ -2,7 +2,7 @@
 
 <launch>
   <arg name="input/pointcloud" default="/points_raw/filtered"/>
-  <arg name="input/map" default="/points_map" />
+  <!-- <arg name="input/map" default="/points_map" /> -->
   <arg name="output/clusters" default="clusters"/>
 
   <node pkg="nodelet" type="nodelet" name="euclidean_cluster_manager" args="manager" output="screen" />
@@ -11,7 +11,7 @@
     <remap from="~output" to="voxel_grid/filtered" />
     <rosparam>
         filter_field_name: z
-        filter_limit_min: 0.1
+        filter_limit_min: 0.5
         filter_limit_max: 2.5
         filter_limit_negative: False
         leaf_size: 0.1
@@ -19,14 +19,14 @@
         output_frame: base_link
     </rosparam>
   </node>
-  <node pkg="nodelet" type="nodelet" name="compare_map_filter" args="load points_preprocessor/voxel_based_compare_map_filter_nodelet euclidean_cluster_manager" output="screen">
+  <!-- <node pkg="nodelet" type="nodelet" name="compare_map_filter" args="load points_preprocessor/voxel_based_compare_map_filter_nodelet euclidean_cluster_manager" output="screen">
     <remap from="~input" to="voxel_grid/filtered"/>
     <remap from="~map" to="$(arg input/map)"/>
     <remap from="~output" to="compare_map/filtered"/>
-  </node>
+  </node> -->
 
   <node pkg="nodelet" type="nodelet" name="euclidean_cluster" args="load euclidean_cluster/euclidean_cluster_nodelet euclidean_cluster_manager" output="screen">
-    <remap from="~input" to="compare_map/filtered"/>
+    <remap from="~input" to="voxel_grid/filtered"/>
     <remap from="~output" to="$(arg output/clusters)"/>
     <rosparam>
             target_frame: base_link

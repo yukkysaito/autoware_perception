@@ -2,10 +2,10 @@
 
 <launch>
     <arg name="use_vector_map" default="true"/>
-    <arg name="pointcloud_map" default="/points_map"/>
+    <!-- <arg name="pointcloud_map" default="/points_map"/> -->
 
     <include file="$(find euclidean_cluster)/launch/euclidean_cluster.launch">
-        <arg name="input/map" default="$(arg pointcloud_map)"/>
+        <!-- <arg name="input/map" default="$(arg pointcloud_map)"/> -->
     </include>
     <!-- <include file="$(find lidar_apollo_cnn_seg_detect)/launch/lidar_apollo_cnn_seg_detect.launch" /> -->
     <include file="$(find shape_estimation)/launch/shape_estimation.launch">
