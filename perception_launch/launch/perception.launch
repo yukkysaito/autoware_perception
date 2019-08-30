@@ -79,6 +79,7 @@
         <!-- prediction module -->
         <group ns="prediction">
             <include file="$(find perception_launch)/launch/prediction/prediction.launch">
+                <arg name="use_vector_map" default="$(arg use_vector_map)"/>
             </include>
         </group>
     </group>
