@@ -12,5 +12,15 @@
         <remap from="output" to="$(arg output/objects)"/>
         <param name="world_frame_id"   value="$(arg world_frame_id)" />
     </node>
+        <!-- visualization -->
+    <include file="$(find dynamic_object_visualization)/launch/dynamic_object_visualizer.launch">
+        <arg name="input" value="objects"/>
+        <arg name="with_feature" value="false"/>
+        <arg name="only_known_objects" default="true"/>
+    </include>
+
+  <node pkg="tf2_ros" type="static_transform_publisher" name="loam_velodyne_to_base_link" args="0 0 0 0 0 -1.57079632679 loam_velodyne/base_link base_link" />
+  <node pkg="tf2_ros" type="static_transform_publisher" name="base_link_to_velodyne" args="0 0 0 -1.57079632679 0 0 base_link velodyne" />
+  <node pkg="tf2_ros" type="static_transform_publisher" name="world_to_map" args="0 0 0 0 0 1.57079632679 world map" />
 
 </launch>
