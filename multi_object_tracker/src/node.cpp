@@ -45,7 +45,7 @@ void MultiObjectTrackerNode::measurementCallback(const autoware_msgs::DynamicObj
                                                  const geometry_msgs::PoseStamped::ConstPtr &input_current_pose_msg)
 {
     autoware_msgs::DynamicObjectWithFeatureArray input_transformed_objects = *input_objects_msg;
-    
+
     /* transform to world coordinate */
     if (input_objects_msg->header.frame_id != world_frame_id_)
     {
@@ -140,9 +140,9 @@ void MultiObjectTrackerNode::measurementCallback(const autoware_msgs::DynamicObj
 
 void MultiObjectTrackerNode::publishTimerCallback(const ros::TimerEvent &e)
 {
-    // // Guard
-    // if (pub_.getNumSubscribers() < 1)
-    //     return;
+    // Guard
+    if (pub_.getNumSubscribers() < 1)
+        return;
 
     /* life cycle check */
     for (auto itr = list_tracker_.begin(); itr != list_tracker_.end(); ++itr)
