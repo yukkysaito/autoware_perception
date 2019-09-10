@@ -1,0 +1,236 @@
+[score matrix size:   0x254  -nan% are 0.]	sum score: (GH)     0 ---> OK	time [ms]: (GH) 0.002	 ave. time [ms]:(GH) 0.002(+ / -)     0
+[score matrix size: 254x244 99.72% are 0.]	sum score: (GH) 65.08 ---> OK	time [ms]: (GH) 47.81	 ave. time [ms]:(GH) 23.91(+ / -)  23.9
+[score matrix size: 370x265  99.8% are 0.]	sum score: (GH) 100.2 ---> OK	time [ms]: (GH) 118.8	 ave. time [ms]:(GH) 55.53(+ / -)  48.8
+[score matrix size: 378x250 99.78% are 0.]	sum score: (GH) 109.9 ---> OK	time [ms]: (GH) 124.2	 ave. time [ms]:(GH)  72.7(+ / -) 51.67
+[score matrix size: 374x246  99.8% are 0.]	sum score: (GH) 103.1 ---> OK	time [ms]: (GH) 113.5	 ave. time [ms]:(GH) 80.85(+ / -) 49.01
+[score matrix size: 374x229  99.8% are 0.]	sum score: (GH) 89.45 ---> OK	time [ms]: (GH) 112.3	 ave. time [ms]:(GH)  86.1(+ / -) 46.25
+[score matrix size: 368x236 99.77% are 0.]	sum score: (GH) 99.21 ---> OK	time [ms]: (GH) 115.5	 ave. time [ms]:(GH) 90.29(+ / -) 44.04
+[score matrix size: 356x238 99.79% are 0.]	sum score: (GH) 89.78 ---> OK	time [ms]: (GH) 101.1	 ave. time [ms]:(GH) 91.64(+ / -) 41.35
+[score matrix size: 380x260 99.79% are 0.]	sum score: (GH) 111.9 ---> OK	time [ms]: (GH) 149.1	 ave. time [ms]:(GH) 98.03(+ / -) 42.96
+[score matrix size: 260x245 99.74% are 0.]	sum score: (GH) 50.27 ---> OK	time [ms]: (GH) 66.77	 ave. time [ms]:(GH)  94.9(+ / -) 41.82
+[score matrix size: 392x240 99.76% are 0.]	sum score: (GH) 87.65 ---> OK	time [ms]: (GH) 166.3	 ave. time [ms]:(GH) 101.4(+ / -) 44.85
+[score matrix size: 363x240 99.77% are 0.]	sum score: (GH) 88.94 ---> OK	time [ms]: (GH) 130.6	 ave. time [ms]:(GH) 103.8(+ / -) 43.69
+[score matrix size: 240x236 99.71% are 0.]	sum score: (GH) 51.83 ---> OK	time [ms]: (GH) 52.15	 ave. time [ms]:(GH) 99.85(+ / -) 44.18
+[score matrix size: 357x231 99.75% are 0.]	sum score: (GH) 82.51 ---> OK	time [ms]: (GH) 126.1	 ave. time [ms]:(GH) 101.7(+ / -)  43.1
+[score matrix size: 354x229 99.76% are 0.]	sum score: (GH) 62.96 ---> OK	time [ms]: (GH) 113.4	 ave. time [ms]:(GH) 102.5(+ / -) 41.74
+[score matrix size: 460x217 99.84% are 0.]	sum score: (GH) 36.33 ---> OK	time [ms]: (GH) 216.4	 ave. time [ms]:(GH) 109.6(+ / -) 48.93
+[score matrix size: 400x219 99.78% are 0.]	sum score: (GH)  90.1 ---> OK	time [ms]: (GH) 123.6	 ave. time [ms]:(GH) 110.4(+ / -) 47.58
+[score matrix size: 321x206 99.93% are 0.]	sum score: (GH) 17.83 ---> OK	time [ms]: (GH) 45.45	 ave. time [ms]:(GH) 106.8(+ / -) 48.58
+[score matrix size: 495x206 99.77% are 0.]	sum score: (GH) 70.35 ---> OK	time [ms]: (GH) 196.4	 ave. time [ms]:(GH) 111.5(+ / -) 51.34
+[score matrix size: 296x200 99.73% are 0.]	sum score: (GH) 65.32 ---> OK	time [ms]: (GH) 65.29	 ave. time [ms]:(GH) 109.2(+ / -) 51.04
+[score matrix size: 367x195 99.85% are 0.]	sum score: (GH) 30.47 ---> OK	time [ms]: (GH) 102.4	 ave. time [ms]:(GH) 108.9(+ / -) 49.83
+[score matrix size: 503x195 99.78% are 0.]	sum score: (GH) 69.59 ---> OK	time [ms]: (GH) 206.5	 ave. time [ms]:(GH) 113.3(+ / -) 52.76
+[score matrix size: 286x192  99.8% are 0.]	sum score: (GH) 33.29 ---> OK	time [ms]: (GH) 48.65	 ave. time [ms]:(GH) 110.5(+ / -) 53.26
+[score matrix size: 416x203  99.8% are 0.]	sum score: (GH) 75.94 ---> OK	time [ms]: (GH) 157.3	 ave. time [ms]:(GH) 112.5(+ / -) 52.97
+[score matrix size: 442x200 99.79% are 0.]	sum score: (GH) 98.22 ---> OK	time [ms]: (GH) 145.1	 ave. time [ms]:(GH) 113.8(+ / -) 52.29
+[score matrix size: 375x194 99.76% are 0.]	sum score: (GH) 78.29 ---> OK	time [ms]: (GH) 89.73	 ave. time [ms]:(GH) 112.9(+ / -) 51.49
+[score matrix size: 382x206 99.75% are 0.]	sum score: (GH) 86.65 ---> OK	time [ms]: (GH) 109.1	 ave. time [ms]:(GH) 112.7(+ / -) 50.53
+[score matrix size: 306x212 99.73% are 0.]	sum score: (GH) 82.72 ---> OK	time [ms]: (GH) 69.42	 ave. time [ms]:(GH) 111.2(+ / -) 50.27
+[score matrix size: 401x198 99.77% are 0.]	sum score: (GH) 59.13 ---> OK	time [ms]: (GH) 125.6	 ave. time [ms]:(GH) 111.7(+ / -) 49.46
+[score matrix size: 306x185  99.8% are 0.]	sum score: (GH) 35.22 ---> OK	time [ms]: (GH) 63.15	 ave. time [ms]:(GH) 110.1(+ / -)  49.4
+[score matrix size: 185x179 99.66% are 0.]	sum score: (GH)    51 ---> OK	time [ms]: (GH) 27.01	 ave. time [ms]:(GH) 107.4(+ / -) 50.77
+[score matrix size: 280x173 99.69% are 0.]	sum score: (GH)  76.1 ---> OK	time [ms]: (GH) 53.78	 ave. time [ms]:(GH) 105.7(+ / -) 50.83
+[score matrix size: 261x158 99.72% are 0.]	sum score: (GH) 63.48 ---> OK	time [ms]: (GH) 43.03	 ave. time [ms]:(GH) 103.8(+ / -) 51.19
+[score matrix size: 332x155 99.75% are 0.]	sum score: (GH) 64.05 ---> OK	time [ms]: (GH) 61.56	 ave. time [ms]:(GH) 102.6(+ / -) 50.94
+[score matrix size: 321x154 99.75% are 0.]	sum score: (GH) 60.26 ---> OK	time [ms]: (GH) 48.16	 ave. time [ms]:(GH)   101(+ / -) 51.02
+[score matrix size: 312x158 99.73% are 0.]	sum score: (GH)  59.8 ---> OK	time [ms]: (GH) 57.36	 ave. time [ms]:(GH) 99.79(+ / -) 50.81
+[score matrix size: 326x160 99.72% are 0.]	sum score: (GH) 63.75 ---> OK	time [ms]: (GH) 55.33	 ave. time [ms]:(GH) 98.59(+ / -) 50.64
+[score matrix size: 326x168 99.76% are 0.]	sum score: (GH) 37.56 ---> OK	time [ms]: (GH)  66.7	 ave. time [ms]:(GH) 97.75(+ / -) 50.22
+[score matrix size: 340x158 99.75% are 0.]	sum score: (GH) 61.42 ---> OK	time [ms]: (GH) 62.76	 ave. time [ms]:(GH) 96.85(+ / -) 49.88
+[score matrix size: 337x159 99.73% are 0.]	sum score: (GH) 74.23 ---> OK	time [ms]: (GH) 62.23	 ave. time [ms]:(GH) 95.99(+ / -) 49.55
+[score matrix size: 236x166 99.72% are 0.]	sum score: (GH) 54.79 ---> OK	time [ms]: (GH) 36.54	 ave. time [ms]:(GH) 94.54(+ / -)  49.8
+[score matrix size: 323x176  99.7% are 0.]	sum score: (GH) 46.54 ---> OK	time [ms]: (GH) 91.82	 ave. time [ms]:(GH) 94.47(+ / -)  49.2
+[score matrix size: 265x177 99.68% are 0.]	sum score: (GH) 64.76 ---> OK	time [ms]: (GH) 48.45	 ave. time [ms]:(GH)  93.4(+ / -) 49.12
+[score matrix size: 345x187 99.71% are 0.]	sum score: (GH) 85.65 ---> OK	time [ms]: (GH) 76.67	 ave. time [ms]:(GH) 93.02(+ / -) 48.62
+[score matrix size: 344x192 99.71% are 0.]	sum score: (GH) 82.26 ---> OK	time [ms]: (GH) 73.09	 ave. time [ms]:(GH) 92.58(+ / -) 48.17
+[score matrix size: 282x158 99.71% are 0.]	sum score: (GH) 66.04 ---> OK	time [ms]: (GH) 48.46	 ave. time [ms]:(GH) 91.62(+ / -) 48.07
+[score matrix size: 271x162 99.74% are 0.]	sum score: (GH) 60.84 ---> OK	time [ms]: (GH) 42.62	 ave. time [ms]:(GH) 90.58(+ / -) 48.08
+[score matrix size: 351x158 99.77% are 0.]	sum score: (GH)  41.4 ---> OK	time [ms]: (GH) 86.74	 ave. time [ms]:(GH)  90.5(+ / -) 47.58
+[score matrix size: 254x143 99.73% are 0.]	sum score: (GH) 31.84 ---> OK	time [ms]: (GH) 34.48	 ave. time [ms]:(GH) 89.35(+ / -) 47.76
+[score matrix size: 338x162 99.72% are 0.]	sum score: (GH) 63.71 ---> OK	time [ms]: (GH) 67.22	 ave. time [ms]:(GH) 88.91(+ / -) 47.38
+[score matrix size: 233x143 99.67% are 0.]	sum score: (GH) 53.81 ---> OK	time [ms]: (GH) 31.31	 ave. time [ms]:(GH) 87.78(+ / -) 47.58
+[score matrix size: 240x139 99.63% are 0.]	sum score: (GH) 43.77 ---> OK	time [ms]: (GH) 35.58	 ave. time [ms]:(GH) 86.78(+ / -) 47.67
+[score matrix size: 222x138 99.66% are 0.]	sum score: (GH) 50.99 ---> OK	time [ms]: (GH) 31.47	 ave. time [ms]:(GH) 85.73(+ / -) 47.81
+[score matrix size: 290x145 99.65% are 0.]	sum score: (GH) 51.17 ---> OK	time [ms]: (GH) 49.26	 ave. time [ms]:(GH) 85.06(+ / -) 47.62
+[score matrix size: 277x140 99.68% are 0.]	sum score: (GH) 50.36 ---> OK	time [ms]: (GH) 42.59	 ave. time [ms]:(GH) 84.29(+ / -) 47.53
+[score matrix size: 276x143 99.73% are 0.]	sum score: (GH) 49.07 ---> OK	time [ms]: (GH) 32.51	 ave. time [ms]:(GH) 83.36(+ / -)  47.6
+[score matrix size: 222x154 99.66% are 0.]	sum score: (GH) 38.26 ---> OK	time [ms]: (GH)  31.5	 ave. time [ms]:(GH) 82.45(+ / -) 47.67
+[score matrix size: 298x139  99.7% are 0.]	sum score: (GH) 50.85 ---> OK	time [ms]: (GH) 48.94	 ave. time [ms]:(GH) 81.87(+ / -) 47.45
+[score matrix size: 299x142 99.68% are 0.]	sum score: (GH) 67.28 ---> OK	time [ms]: (GH) 47.43	 ave. time [ms]:(GH) 81.29(+ / -) 47.26
+[score matrix size: 284x158 99.66% are 0.]	sum score: (GH)  72.9 ---> OK	time [ms]: (GH) 49.02	 ave. time [ms]:(GH) 80.75(+ / -) 47.05
+[score matrix size: 271x153  99.7% are 0.]	sum score: (GH)  67.9 ---> OK	time [ms]: (GH)  41.5	 ave. time [ms]:(GH) 80.11(+ / -) 46.92
+[score matrix size: 281x157 99.68% are 0.]	sum score: (GH) 73.66 ---> OK	time [ms]: (GH) 53.48	 ave. time [ms]:(GH) 79.68(+ / -) 46.66
+[score matrix size: 296x160 99.71% are 0.]	sum score: (GH) 70.52 ---> OK	time [ms]: (GH) 55.14	 ave. time [ms]:(GH) 79.29(+ / -) 46.39
+[score matrix size: 243x171 99.71% are 0.]	sum score: (GH) 41.42 ---> OK	time [ms]: (GH) 36.69	 ave. time [ms]:(GH) 78.62(+ / -) 46.33
+[score matrix size: 264x175 99.72% are 0.]	sum score: (GH)  61.8 ---> OK	time [ms]: (GH) 43.16	 ave. time [ms]:(GH) 78.08(+ / -) 46.18
+[score matrix size: 263x174 99.72% are 0.]	sum score: (GH)  64.3 ---> OK	time [ms]: (GH) 46.53	 ave. time [ms]:(GH)  77.6(+ / -) 45.99
+[score matrix size: 274x172 99.68% are 0.]	sum score: (GH) 76.66 ---> OK	time [ms]: (GH) 46.84	 ave. time [ms]:(GH) 77.14(+ / -)  45.8
+[score matrix size: 346x161 99.74% are 0.]	sum score: (GH) 48.14 ---> OK	time [ms]: (GH) 85.68	 ave. time [ms]:(GH) 77.27(+ / -) 45.47
+[score matrix size: 329x172 99.76% are 0.]	sum score: (GH) 43.43 ---> OK	time [ms]: (GH) 89.68	 ave. time [ms]:(GH) 77.45(+ / -) 45.17
+[score matrix size: 342x160 99.76% are 0.]	sum score: (GH) 58.13 ---> OK	time [ms]: (GH) 66.04	 ave. time [ms]:(GH) 77.28(+ / -) 44.86
+[score matrix size: 255x153  99.7% are 0.]	sum score: (GH) 58.89 ---> OK	time [ms]: (GH) 37.61	 ave. time [ms]:(GH) 76.73(+ / -) 44.79
+[score matrix size: 324x134 99.73% are 0.]	sum score: (GH) 30.71 ---> OK	time [ms]: (GH) 54.86	 ave. time [ms]:(GH) 76.42(+ / -) 44.55
+[score matrix size: 309x130 99.73% are 0.]	sum score: (GH)  45.9 ---> OK	time [ms]: (GH) 45.37	 ave. time [ms]:(GH)    76(+ / -) 44.39
+[score matrix size: 299x120 99.72% are 0.]	sum score: (GH) 44.87 ---> OK	time [ms]: (GH) 37.69	 ave. time [ms]:(GH) 75.48(+ / -) 44.31
+[score matrix size: 265x128 99.71% are 0.]	sum score: (GH)  42.5 ---> OK	time [ms]: (GH) 35.04	 ave. time [ms]:(GH) 74.94(+ / -) 44.26
+[score matrix size: 260x124 99.67% are 0.]	sum score: (GH) 50.69 ---> OK	time [ms]: (GH) 34.13	 ave. time [ms]:(GH)  74.4(+ / -) 44.21
+[score matrix size: 254x138 99.65% are 0.]	sum score: (GH) 55.95 ---> OK	time [ms]: (GH) 29.49	 ave. time [ms]:(GH) 73.82(+ / -) 44.22
+[score matrix size: 256x119 99.64% are 0.]	sum score: (GH) 49.78 ---> OK	time [ms]: (GH) 35.82	 ave. time [ms]:(GH) 73.33(+ / -) 44.14
+[score matrix size: 197x132 99.63% are 0.]	sum score: (GH) 33.85 ---> OK	time [ms]: (GH) 27.83	 ave. time [ms]:(GH) 72.76(+ / -) 44.16
+[score matrix size: 262x119 99.64% are 0.]	sum score: (GH) 42.74 ---> OK	time [ms]: (GH) 29.43	 ave. time [ms]:(GH) 72.21(+ / -) 44.14
+[score matrix size: 193x119 99.51% are 0.]	sum score: (GH) 42.24 ---> OK	time [ms]: (GH) 16.33	 ave. time [ms]:(GH) 71.52(+ / -)  44.3
+[score matrix size: 237x118 99.58% are 0.]	sum score: (GH) 47.92 ---> OK	time [ms]: (GH) 32.27	 ave. time [ms]:(GH) 71.05(+ / -) 44.24
+[score matrix size: 224x115  99.6% are 0.]	sum score: (GH) 47.37 ---> OK	time [ms]: (GH) 31.07	 ave. time [ms]:(GH) 70.56(+ / -) 44.19
+[score matrix size: 225x121 99.56% are 0.]	sum score: (GH) 49.16 ---> OK	time [ms]: (GH) 22.82	 ave. time [ms]:(GH)    70(+ / -) 44.23
+[score matrix size: 233x126 99.62% are 0.]	sum score: (GH) 51.94 ---> OK	time [ms]: (GH)  33.7	 ave. time [ms]:(GH) 69.57(+ / -) 44.14
+[score matrix size: 185x111 99.51% are 0.]	sum score: (GH) 49.85 ---> OK	time [ms]: (GH) 26.37	 ave. time [ms]:(GH) 69.07(+ / -) 44.13
+[score matrix size: 227x122 99.66% are 0.]	sum score: (GH) 44.66 ---> OK	time [ms]: (GH)  19.4	 ave. time [ms]:(GH)  68.5(+ / -) 44.19
+[score matrix size: 242x117 99.65% are 0.]	sum score: (GH) 51.92 ---> OK	time [ms]: (GH) 33.22	 ave. time [ms]:(GH)  68.1(+ / -)  44.1
+[score matrix size: 179x127 99.56% are 0.]	sum score: (GH) 51.28 ---> OK	time [ms]: (GH) 23.89	 ave. time [ms]:(GH)  67.6(+ / -)  44.1
+[score matrix size: 232x135 99.61% are 0.]	sum score: (GH) 55.36 ---> OK	time [ms]: (GH) 31.17	 ave. time [ms]:(GH) 67.19(+ / -) 44.02
+[score matrix size: 203x143 99.63% are 0.]	sum score: (GH) 57.38 ---> OK	time [ms]: (GH)  29.3	 ave. time [ms]:(GH) 66.78(+ / -) 43.95
+[score matrix size: 266x161 99.65% are 0.]	sum score: (GH) 63.46 ---> OK	time [ms]: (GH) 43.05	 ave. time [ms]:(GH) 66.52(+ / -) 43.78
+[score matrix size: 276x157 99.64% are 0.]	sum score: (GH)  75.7 ---> OK	time [ms]: (GH) 49.64	 ave. time [ms]:(GH) 66.34(+ / -) 43.58
+[score matrix size: 284x138 99.69% are 0.]	sum score: (GH) 62.96 ---> OK	time [ms]: (GH) 40.96	 ave. time [ms]:(GH) 66.07(+ / -) 43.43
+[score matrix size: 283x136  99.7% are 0.]	sum score: (GH) 65.88 ---> OK	time [ms]: (GH) 44.21	 ave. time [ms]:(GH) 65.84(+ / -) 43.26
+[score matrix size: 273x138 99.64% are 0.]	sum score: (GH) 65.91 ---> OK	time [ms]: (GH) 34.36	 ave. time [ms]:(GH) 65.51(+ / -) 43.15
+[score matrix size: 260x134 99.64% are 0.]	sum score: (GH) 63.43 ---> OK	time [ms]: (GH) 37.34	 ave. time [ms]:(GH) 65.22(+ / -) 43.02
+[score matrix size: 260x132 99.69% are 0.]	sum score: (GH) 54.59 ---> OK	time [ms]: (GH) 36.52	 ave. time [ms]:(GH) 64.93(+ / -)  42.9
+[score matrix size: 207x125 99.69% are 0.]	sum score: (GH) 32.96 ---> OK	time [ms]: (GH) 28.18	 ave. time [ms]:(GH) 64.56(+ / -) 42.84
+[score matrix size: 209x119 99.61% are 0.]	sum score: (GH) 46.46 ---> OK	time [ms]: (GH)    28	 ave. time [ms]:(GH) 64.19(+ / -) 42.78
+[score matrix size: 184x116 99.66% are 0.]	sum score: (GH) 41.75 ---> OK	time [ms]: (GH) 24.35	 ave. time [ms]:(GH)  63.8(+ / -) 42.75
+[score matrix size: 242x127 99.64% are 0.]	sum score: (GH) 50.98 ---> OK	time [ms]: (GH) 28.15	 ave. time [ms]:(GH) 63.45(+ / -) 42.68
+[score matrix size: 248x122  99.7% are 0.]	sum score: (GH) 45.33 ---> OK	time [ms]: (GH) 30.96	 ave. time [ms]:(GH) 63.13(+ / -) 42.59
+[score matrix size: 257x129 99.66% are 0.]	sum score: (GH) 57.98 ---> OK	time [ms]: (GH) 34.04	 ave. time [ms]:(GH) 62.85(+ / -) 42.48
+[score matrix size: 250x137 99.62% are 0.]	sum score: (GH) 49.14 ---> OK	time [ms]: (GH) 39.69	 ave. time [ms]:(GH) 62.63(+ / -) 42.34
+[score matrix size: 206x138 99.65% are 0.]	sum score: (GH) 47.93 ---> OK	time [ms]: (GH)  19.8	 ave. time [ms]:(GH) 62.23(+ / -) 42.34
+[score matrix size: 214x139 99.66% are 0.]	sum score: (GH) 54.15 ---> OK	time [ms]: (GH)  28.1	 ave. time [ms]:(GH) 61.91(+ / -) 42.27
+[score matrix size: 210x153 99.65% are 0.]	sum score: (GH) 61.04 ---> OK	time [ms]: (GH) 29.76	 ave. time [ms]:(GH) 61.61(+ / -) 42.19
+[score matrix size: 224x161 99.67% are 0.]	sum score: (GH) 66.09 ---> OK	time [ms]: (GH) 32.01	 ave. time [ms]:(GH) 61.34(+ / -) 42.09
+[score matrix size: 236x154 99.69% are 0.]	sum score: (GH) 63.44 ---> OK	time [ms]: (GH) 31.47	 ave. time [ms]:(GH) 61.07(+ / -) 41.99
+[score matrix size: 246x164 99.68% are 0.]	sum score: (GH)  71.6 ---> OK	time [ms]: (GH) 40.19	 ave. time [ms]:(GH) 60.88(+ / -) 41.85
+[score matrix size: 313x163 99.73% are 0.]	sum score: (GH) 54.83 ---> OK	time [ms]: (GH) 56.61	 ave. time [ms]:(GH) 60.84(+ / -) 41.67
+[score matrix size: 248x162 99.65% are 0.]	sum score: (GH) 55.18 ---> OK	time [ms]: (GH) 41.42	 ave. time [ms]:(GH) 60.67(+ / -) 41.52
+[score matrix size: 302x167  99.7% are 0.]	sum score: (GH)  60.1 ---> OK	time [ms]: (GH) 49.27	 ave. time [ms]:(GH) 60.57(+ / -) 41.35
+[score matrix size: 303x182  99.7% are 0.]	sum score: (GH) 76.34 ---> OK	time [ms]: (GH) 56.93	 ave. time [ms]:(GH) 60.54(+ / -) 41.17
+[score matrix size: 375x172 99.76% are 0.]	sum score: (GH) 71.84 ---> OK	time [ms]: (GH) 75.62	 ave. time [ms]:(GH) 60.67(+ / -) 41.02
+[score matrix size: 348x180 99.74% are 0.]	sum score: (GH) 79.98 ---> OK	time [ms]: (GH) 76.04	 ave. time [ms]:(GH)  60.8(+ / -) 40.87
+[score matrix size: 348x176 99.73% are 0.]	sum score: (GH)  79.3 ---> OK	time [ms]: (GH) 75.34	 ave. time [ms]:(GH) 60.92(+ / -) 40.72
+[score matrix size: 339x179 99.72% are 0.]	sum score: (GH) 75.12 ---> OK	time [ms]: (GH) 74.29	 ave. time [ms]:(GH) 61.03(+ / -) 40.56
+[score matrix size: 328x177  99.7% are 0.]	sum score: (GH) 83.64 ---> OK	time [ms]: (GH) 72.32	 ave. time [ms]:(GH) 61.13(+ / -) 40.41
+[score matrix size: 328x179 99.73% are 0.]	sum score: (GH) 80.32 ---> OK	time [ms]: (GH) 63.64	 ave. time [ms]:(GH) 61.15(+ / -) 40.24
+[score matrix size: 343x183 99.74% are 0.]	sum score: (GH) 78.07 ---> OK	time [ms]: (GH)  70.2	 ave. time [ms]:(GH) 61.22(+ / -) 40.08
+[score matrix size: 278x182 99.72% are 0.]	sum score: (GH) 46.78 ---> OK	time [ms]: (GH) 60.52	 ave. time [ms]:(GH) 61.22(+ / -) 39.92
+[score matrix size: 363x179 99.76% are 0.]	sum score: (GH) 69.83 ---> OK	time [ms]: (GH) 73.15	 ave. time [ms]:(GH) 61.31(+ / -) 39.77
+[score matrix size: 268x173 99.71% are 0.]	sum score: (GH) 74.57 ---> OK	time [ms]: (GH) 44.56	 ave. time [ms]:(GH) 61.18(+ / -) 39.64
+[score matrix size: 337x174 99.73% are 0.]	sum score: (GH) 82.28 ---> OK	time [ms]: (GH)  66.1	 ave. time [ms]:(GH) 61.22(+ / -) 39.49
+[score matrix size: 328x171 99.75% are 0.]	sum score: (GH) 72.38 ---> OK	time [ms]: (GH) 59.59	 ave. time [ms]:(GH) 61.21(+ / -) 39.33
+[score matrix size: 340x177 99.72% are 0.]	sum score: (GH) 79.91 ---> OK	time [ms]: (GH) 83.46	 ave. time [ms]:(GH) 61.38(+ / -) 39.23
+[score matrix size: 331x171 99.73% are 0.]	sum score: (GH) 74.26 ---> OK	time [ms]: (GH) 75.88	 ave. time [ms]:(GH) 61.49(+ / -) 39.09
+[score matrix size: 330x176 99.73% are 0.]	sum score: (GH) 81.46 ---> OK	time [ms]: (GH) 63.39	 ave. time [ms]:(GH) 61.51(+ / -) 38.94
+[score matrix size: 331x160 99.74% are 0.]	sum score: (GH)  46.5 ---> OK	time [ms]: (GH) 55.05	 ave. time [ms]:(GH) 61.46(+ / -)  38.8
+[score matrix size: 266x169 99.71% are 0.]	sum score: (GH)  60.2 ---> OK	time [ms]: (GH) 40.25	 ave. time [ms]:(GH)  61.3(+ / -)  38.7
+[score matrix size: 254x164  99.7% are 0.]	sum score: (GH) 57.66 ---> OK	time [ms]: (GH) 37.04	 ave. time [ms]:(GH) 61.11(+ / -) 38.61
+[score matrix size: 258x150 99.69% are 0.]	sum score: (GH)  63.1 ---> OK	time [ms]: (GH)  32.6	 ave. time [ms]:(GH)  60.9(+ / -) 38.54
+[score matrix size: 242x150  99.7% are 0.]	sum score: (GH) 55.16 ---> OK	time [ms]: (GH) 30.16	 ave. time [ms]:(GH) 60.67(+ / -) 38.49
+[score matrix size: 239x158  99.7% are 0.]	sum score: (GH) 54.52 ---> OK	time [ms]: (GH) 38.54	 ave. time [ms]:(GH) 60.51(+ / -) 38.39
+[score matrix size: 251x148 99.69% are 0.]	sum score: (GH) 54.56 ---> OK	time [ms]: (GH) 37.82	 ave. time [ms]:(GH) 60.35(+ / -)  38.3
+[score matrix size: 239x151 99.69% are 0.]	sum score: (GH) 60.75 ---> OK	time [ms]: (GH) 32.62	 ave. time [ms]:(GH) 60.14(+ / -) 38.23
+[score matrix size: 308x145 99.71% are 0.]	sum score: (GH) 60.67 ---> OK	time [ms]: (GH) 49.19	 ave. time [ms]:(GH) 60.07(+ / -) 38.11
+[score matrix size: 231x146 99.69% are 0.]	sum score: (GH) 55.36 ---> OK	time [ms]: (GH) 34.47	 ave. time [ms]:(GH) 59.88(+ / -) 38.03
+[score matrix size: 233x168 99.73% are 0.]	sum score: (GH) 55.55 ---> OK	time [ms]: (GH)  33.5	 ave. time [ms]:(GH)  59.7(+ / -) 37.96
+[score matrix size: 252x159 99.72% are 0.]	sum score: (GH) 54.03 ---> OK	time [ms]: (GH) 34.16	 ave. time [ms]:(GH) 59.52(+ / -) 37.89
+[score matrix size: 159x172 99.56% are 0.]	sum score: (GH) 77.82 ---> OK	time [ms]: (GH) 18.29	 ave. time [ms]:(GH) 59.23(+ / -) 37.91
+[score matrix size: 172x170 99.63% are 0.]	sum score: (GH) 49.32 ---> OK	time [ms]: (GH) 21.85	 ave. time [ms]:(GH) 58.97(+ / -) 37.91
+[score matrix size: 170x173 99.68% are 0.]	sum score: (GH) 48.83 ---> OK	time [ms]: (GH) 23.31	 ave. time [ms]:(GH) 58.72(+ / -) 37.89
+[score matrix size: 269x175 99.75% are 0.]	sum score: (GH) 73.81 ---> OK	time [ms]: (GH) 43.17	 ave. time [ms]:(GH) 58.62(+ / -) 37.78
+[score matrix size: 259x177 99.74% are 0.]	sum score: (GH) 54.15 ---> OK	time [ms]: (GH)  38.2	 ave. time [ms]:(GH) 58.48(+ / -) 37.69
+[score matrix size: 272x190 99.72% are 0.]	sum score: (GH) 85.34 ---> OK	time [ms]: (GH) 49.73	 ave. time [ms]:(GH) 58.42(+ / -) 37.57
+[score matrix size: 263x175  99.7% are 0.]	sum score: (GH) 82.02 ---> OK	time [ms]: (GH) 43.52	 ave. time [ms]:(GH) 58.32(+ / -) 37.46
+[score matrix size: 269x187 99.72% are 0.]	sum score: (GH) 82.39 ---> OK	time [ms]: (GH) 49.51	 ave. time [ms]:(GH) 58.26(+ / -) 37.35
+[score matrix size: 268x172 99.73% are 0.]	sum score: (GH) 80.35 ---> OK	time [ms]: (GH) 41.36	 ave. time [ms]:(GH) 58.15(+ / -) 37.25
+[score matrix size: 264x177 99.75% are 0.]	sum score: (GH) 71.57 ---> OK	time [ms]: (GH) 40.64	 ave. time [ms]:(GH) 58.03(+ / -) 37.15
+[score matrix size: 268x164 99.73% are 0.]	sum score: (GH) 67.66 ---> OK	time [ms]: (GH) 41.65	 ave. time [ms]:(GH) 57.92(+ / -) 37.05
+[score matrix size: 345x177 99.75% are 0.]	sum score: (GH) 59.81 ---> OK	time [ms]: (GH)  72.6	 ave. time [ms]:(GH) 58.02(+ / -) 36.95
+[score matrix size: 349x176 99.75% are 0.]	sum score: (GH) 76.41 ---> OK	time [ms]: (GH) 72.14	 ave. time [ms]:(GH) 58.11(+ / -) 36.85
+[score matrix size: 261x163 99.72% are 0.]	sum score: (GH) 41.04 ---> OK	time [ms]: (GH) 43.94	 ave. time [ms]:(GH) 58.02(+ / -) 36.75
+[score matrix size: 258x161 99.67% are 0.]	sum score: (GH) 63.53 ---> OK	time [ms]: (GH) 44.98	 ave. time [ms]:(GH) 57.94(+ / -) 36.65
+[score matrix size: 238x175 99.71% are 0.]	sum score: (GH) 64.98 ---> OK	time [ms]: (GH) 38.86	 ave. time [ms]:(GH) 57.82(+ / -) 36.56
+[score matrix size: 256x172 99.73% are 0.]	sum score: (GH) 65.73 ---> OK	time [ms]: (GH) 41.74	 ave. time [ms]:(GH) 57.72(+ / -) 36.47
+[score matrix size: 264x167 99.74% are 0.]	sum score: (GH) 41.68 ---> OK	time [ms]: (GH) 42.04	 ave. time [ms]:(GH) 57.62(+ / -) 36.38
+[score matrix size: 274x172  99.7% are 0.]	sum score: (GH) 64.37 ---> OK	time [ms]: (GH) 47.62	 ave. time [ms]:(GH) 57.56(+ / -) 36.27
+[score matrix size: 253x175  99.7% are 0.]	sum score: (GH) 65.53 ---> OK	time [ms]: (GH) 39.76	 ave. time [ms]:(GH) 57.45(+ / -) 36.19
+[score matrix size: 333x165 99.75% are 0.]	sum score: (GH) 66.62 ---> OK	time [ms]: (GH)  57.9	 ave. time [ms]:(GH) 57.45(+ / -) 36.07
+[score matrix size: 338x160 99.78% are 0.]	sum score: (GH) 61.87 ---> OK	time [ms]: (GH) 60.42	 ave. time [ms]:(GH) 57.47(+ / -) 35.96
+[score matrix size: 343x167 99.76% are 0.]	sum score: (GH) 70.05 ---> OK	time [ms]: (GH) 64.59	 ave. time [ms]:(GH) 57.51(+ / -) 35.86
+[score matrix size: 336x178 99.72% are 0.]	sum score: (GH) 76.73 ---> OK	time [ms]: (GH) 74.78	 ave. time [ms]:(GH) 57.61(+ / -) 35.78
+[score matrix size: 254x185 99.71% are 0.]	sum score: (GH) 61.69 ---> OK	time [ms]: (GH) 45.77	 ave. time [ms]:(GH) 57.54(+ / -) 35.68
+[score matrix size: 277x182 99.71% are 0.]	sum score: (GH) 78.28 ---> OK	time [ms]: (GH) 52.92	 ave. time [ms]:(GH) 57.52(+ / -) 35.58
+[score matrix size: 269x185 99.69% are 0.]	sum score: (GH) 77.91 ---> OK	time [ms]: (GH) 51.11	 ave. time [ms]:(GH) 57.48(+ / -) 35.47
+[score matrix size: 269x193  99.7% are 0.]	sum score: (GH) 86.37 ---> OK	time [ms]: (GH)  46.5	 ave. time [ms]:(GH) 57.41(+ / -) 35.38
+[score matrix size: 280x187 99.72% are 0.]	sum score: (GH) 51.94 ---> OK	time [ms]: (GH) 48.32	 ave. time [ms]:(GH) 57.36(+ / -) 35.28
+[score matrix size: 300x184 99.68% are 0.]	sum score: (GH) 87.59 ---> OK	time [ms]: (GH) 58.44	 ave. time [ms]:(GH) 57.37(+ / -) 35.18
+[score matrix size: 273x191  99.7% are 0.]	sum score: (GH) 49.68 ---> OK	time [ms]: (GH) 48.76	 ave. time [ms]:(GH) 57.32(+ / -) 35.08
+[score matrix size: 295x185 99.73% are 0.]	sum score: (GH) 71.07 ---> OK	time [ms]: (GH) 55.98	 ave. time [ms]:(GH) 57.31(+ / -) 34.98
+[score matrix size: 276x170 99.71% are 0.]	sum score: (GH) 68.12 ---> OK	time [ms]: (GH) 48.89	 ave. time [ms]:(GH) 57.26(+ / -) 34.89
+[score matrix size: 346x162 99.71% are 0.]	sum score: (GH) 74.57 ---> OK	time [ms]: (GH) 66.34	 ave. time [ms]:(GH) 57.31(+ / -)  34.8
+[score matrix size: 329x154 99.69% are 0.]	sum score: (GH) 69.38 ---> OK	time [ms]: (GH) 61.38	 ave. time [ms]:(GH) 57.33(+ / -)  34.7
+[score matrix size: 314x145 99.68% are 0.]	sum score: (GH) 68.44 ---> OK	time [ms]: (GH)    51	 ave. time [ms]:(GH)  57.3(+ / -) 34.61
+[score matrix size: 298x139 99.72% are 0.]	sum score: (GH) 62.07 ---> OK	time [ms]: (GH) 46.77	 ave. time [ms]:(GH) 57.24(+ / -) 34.52
+[score matrix size: 218x144 99.66% are 0.]	sum score: (GH) 50.46 ---> OK	time [ms]: (GH) 22.04	 ave. time [ms]:(GH) 57.04(+ / -) 34.52
+[score matrix size: 219x144 99.65% are 0.]	sum score: (GH)  59.9 ---> OK	time [ms]: (GH) 22.45	 ave. time [ms]:(GH) 56.85(+ / -) 34.52
+[score matrix size: 220x149 99.62% are 0.]	sum score: (GH) 58.43 ---> OK	time [ms]: (GH)  31.1	 ave. time [ms]:(GH) 56.71(+ / -) 34.48
+[score matrix size: 223x153 99.62% are 0.]	sum score: (GH) 68.81 ---> OK	time [ms]: (GH) 34.99	 ave. time [ms]:(GH) 56.59(+ / -) 34.42
+[score matrix size: 218x137 99.65% are 0.]	sum score: (GH) 59.82 ---> OK	time [ms]: (GH) 22.62	 ave. time [ms]:(GH) 56.41(+ / -) 34.42
+[score matrix size: 217x143 99.63% are 0.]	sum score: (GH) 64.63 ---> OK	time [ms]: (GH) 24.61	 ave. time [ms]:(GH) 56.24(+ / -)  34.4
+[score matrix size: 206x148  99.6% are 0.]	sum score: (GH) 71.56 ---> OK	time [ms]: (GH) 29.06	 ave. time [ms]:(GH) 56.09(+ / -) 34.37
+[score matrix size: 263x160 99.68% are 0.]	sum score: (GH) 70.04 ---> OK	time [ms]: (GH) 37.57	 ave. time [ms]:(GH) 55.99(+ / -)  34.3
+[score matrix size: 228x154 99.61% are 0.]	sum score: (GH) 80.09 ---> OK	time [ms]: (GH) 34.23	 ave. time [ms]:(GH) 55.88(+ / -) 34.25
+[score matrix size: 222x154 99.57% are 0.]	sum score: (GH) 84.46 ---> OK	time [ms]: (GH) 35.66	 ave. time [ms]:(GH) 55.77(+ / -) 34.19
+[score matrix size: 214x153 99.55% are 0.]	sum score: (GH) 77.26 ---> OK	time [ms]: (GH) 32.74	 ave. time [ms]:(GH) 55.65(+ / -) 34.14
+[score matrix size: 267x152 99.61% are 0.]	sum score: (GH) 92.69 ---> OK	time [ms]: (GH) 44.18	 ave. time [ms]:(GH) 55.59(+ / -) 34.06
+[score matrix size: 268x157 99.62% are 0.]	sum score: (GH) 92.41 ---> OK	time [ms]: (GH)  43.3	 ave. time [ms]:(GH) 55.52(+ / -) 33.98
+[score matrix size: 263x150 99.62% are 0.]	sum score: (GH)  91.5 ---> OK	time [ms]: (GH) 41.14	 ave. time [ms]:(GH) 55.45(+ / -) 33.91
+[score matrix size: 211x142 99.57% are 0.]	sum score: (GH) 82.87 ---> OK	time [ms]: (GH) 31.41	 ave. time [ms]:(GH) 55.33(+ / -) 33.87
+[score matrix size: 256x144 99.65% are 0.]	sum score: (GH) 84.24 ---> OK	time [ms]: (GH) 38.72	 ave. time [ms]:(GH) 55.24(+ / -)  33.8
+[score matrix size: 254x148 99.66% are 0.]	sum score: (GH) 81.36 ---> OK	time [ms]: (GH) 38.06	 ave. time [ms]:(GH) 55.15(+ / -) 33.74
+[score matrix size: 257x142 99.64% are 0.]	sum score: (GH) 77.97 ---> OK	time [ms]: (GH) 39.91	 ave. time [ms]:(GH) 55.08(+ / -) 33.67
+[score matrix size: 209x150 99.61% are 0.]	sum score: (GH)  80.8 ---> OK	time [ms]: (GH) 34.77	 ave. time [ms]:(GH) 54.97(+ / -) 33.61
+[score matrix size: 209x153 99.57% are 0.]	sum score: (GH)  84.1 ---> OK	time [ms]: (GH) 30.98	 ave. time [ms]:(GH) 54.85(+ / -) 33.57
+[score matrix size: 213x148 99.55% are 0.]	sum score: (GH) 86.65 ---> OK	time [ms]: (GH) 31.54	 ave. time [ms]:(GH) 54.74(+ / -) 33.53
+[score matrix size: 208x147 99.59% are 0.]	sum score: (GH) 82.36 ---> OK	time [ms]: (GH) 31.52	 ave. time [ms]:(GH) 54.62(+ / -) 33.49
+[score matrix size: 200x144 99.61% are 0.]	sum score: (GH) 76.39 ---> OK	time [ms]: (GH) 20.86	 ave. time [ms]:(GH) 54.45(+ / -) 33.49
+[score matrix size: 206x143 99.63% are 0.]	sum score: (GH) 78.84 ---> OK	time [ms]: (GH)  29.3	 ave. time [ms]:(GH) 54.33(+ / -) 33.45
+[score matrix size: 200x142 99.62% are 0.]	sum score: (GH)  71.5 ---> OK	time [ms]: (GH) 28.51	 ave. time [ms]:(GH)  54.2(+ / -) 33.42
+[score matrix size: 255x139 99.67% are 0.]	sum score: (GH) 78.41 ---> OK	time [ms]: (GH) 39.74	 ave. time [ms]:(GH) 54.13(+ / -) 33.35
+[score matrix size: 199x141 99.62% are 0.]	sum score: (GH) 74.62 ---> OK	time [ms]: (GH) 28.52	 ave. time [ms]:(GH) 54.01(+ / -) 33.32
+[score matrix size: 253x139 99.66% are 0.]	sum score: (GH) 78.64 ---> OK	time [ms]: (GH) 32.12	 ave. time [ms]:(GH)  53.9(+ / -) 33.27
+[score matrix size: 260x154 99.64% are 0.]	sum score: (GH) 89.16 ---> OK	time [ms]: (GH) 45.77	 ave. time [ms]:(GH) 53.86(+ / -)  33.2
+[score matrix size: 205x142 99.58% are 0.]	sum score: (GH) 88.47 ---> OK	time [ms]: (GH) 22.58	 ave. time [ms]:(GH) 53.71(+ / -) 33.19
+[score matrix size: 200x144 99.58% are 0.]	sum score: (GH) 88.58 ---> OK	time [ms]: (GH) 20.42	 ave. time [ms]:(GH) 53.55(+ / -) 33.19
+... logging to /home/autoware/.ros/log/6890927e-d38c-11e9-b699-9cb6d0b90063/roslaunch-autoware-XPS-15-9570-27205.log
+Checking log directory for disk usage. This may take awhile.
+Press Ctrl-C to interrupt
+Done checking log file disk usage. Usage is <1GB.
+]2;/home/autoware/workspace/catkin_ws/src/autoware_perception/multi_object_tracker/launch/multi_object_tracker.launch
+[1mstarted roslaunch server http://localhost:46287/[0m
+
+SUMMARY
+========
+
+PARAMETERS
+ * /multi_object_tracker/world_frame_id: world
+ * /rosdistro: kinetic
+ * /rosversion: 1.12.14
+
+NODES
+  /
+    multi_object_tracker (multi_object_tracker/multi_object_tracker_node)
+
+[1mROS_MASTER_URI=http://localhost:11311[0m
+]2;/home/autoware/workspace/catkin_ws/src/autoware_perception/multi_object_tracker/launch/multi_object_tracker.launch http://localhost:11311
+[1mprocess[multi_object_tracker-1]: started with pid [27222][0m
+[multi_object_tracker-1] killing on exit
+shutting down processing monitor...
+... shutting down processing monitor complete
+[1mdone[0m

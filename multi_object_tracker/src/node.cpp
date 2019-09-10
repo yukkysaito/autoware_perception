@@ -140,9 +140,9 @@ void MultiObjectTrackerNode::measurementCallback(const autoware_msgs::DynamicObj
 
 void MultiObjectTrackerNode::publishTimerCallback(const ros::TimerEvent &e)
 {
-    // Guard
-    if (pub_.getNumSubscribers() < 1)
-        return;
+    // // Guard
+    // if (pub_.getNumSubscribers() < 1)
+    //     return;
 
     /* life cycle check */
     for (auto itr = list_tracker_.begin(); itr != list_tracker_.end(); ++itr)
