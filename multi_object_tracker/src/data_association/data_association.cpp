@@ -18,10 +18,9 @@
  */
 
 #include "multi_object_tracker/data_association/data_association.hpp"
-#include "hungarian/hungarian.h"
 #include "multi_object_tracker/utils/utils.hpp"
+#include "successive_shortest_path/successive_shortest_path.h"
 
-// #include <iostream>
 DataAssociation::DataAssociation()
     : score_threshold_(0.1)
 {
@@ -123,7 +122,9 @@ bool DataAssociation::assign(const Eigen::MatrixXd &src,
             score.at(row).at(col) = src(row, col);
         }
     }
-    operations_research::MaximizeLinearAssignment(score, &direct_assignment, &reverse_assignment);
+    // Solve
+    assignment_problem::MaximizeLinearAssignment(score, &direct_assignment, &reverse_assignment);
+
     for (auto itr = direct_assignment.begin(); itr != direct_assignment.end();)
     {
         if (src(itr->first, itr->second) < score_threshold_)
