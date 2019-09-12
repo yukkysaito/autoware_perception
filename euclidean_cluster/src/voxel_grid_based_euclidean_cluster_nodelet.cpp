@@ -73,19 +73,19 @@ void VoxelGridBasedEuclideanClusterNodelet::pointcloudCallback(const sensor_msgs
 
     // create map to search cluster index from voxel grid index
     std::unordered_map</* voxel grid index */ int, /* cluster index */int> map;
-        int cluster_idx = 0;
-        for (std::vector<pcl::PointIndices>::const_iterator cluster_itr = cluster_indices.begin();
-             cluster_itr != cluster_indices.end();
-             ++cluster_itr)
+    int cluster_idx = 0;
+    for (std::vector<pcl::PointIndices>::const_iterator cluster_itr = cluster_indices.begin();
+         cluster_itr != cluster_indices.end();
+         ++cluster_itr)
+    {
+        for (std::vector<int>::const_iterator point_itr = cluster_itr->indices.begin();
+             point_itr != cluster_itr->indices.end();
+             ++point_itr)
         {
-            for (std::vector<int>::const_iterator point_itr = cluster_itr->indices.begin();
-                 point_itr != cluster_itr->indices.end();
-                 ++point_itr)
-            {
-                map[*point_itr] = cluster_idx;
-            }
-            ++cluster_idx;
+            map[*point_itr] = cluster_idx;
         }
+        ++cluster_idx;
+    }
 
     // create vector of point cloud cluster. vecter index is voxel grid index.
     std::vector<pcl::PointCloud<pcl::PointXYZ>> v_cluster;
@@ -100,30 +100,30 @@ void VoxelGridBasedEuclideanClusterNodelet::pointcloudCallback(const sensor_msgs
 
     // build output msg
     {
-        // autoware_msgs::DynamicObjectWithFeatureArray output;
-        // output.header = input_msg->header;
-        // for (std::vector<pcl::PointIndices>::const_iterator cluster_itr = cluster_indices.begin();
-        //      cluster_itr != cluster_indices.end();
-        //      ++cluster_itr)
-        // {
-        //     pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_cluster(new pcl::PointCloud<pcl::PointXYZ>);
-        //     for (std::vector<int>::const_iterator point_itr = cluster_itr->indices.begin();
-        //          point_itr != cluster_itr->indices.end();
-        //          ++point_itr)
-        //     {
-        //         cloud_cluster->points.push_back(raw_pointcloud_ptr->points[*point_itr]);
-        //     }
-        //     cloud_cluster->width = cloud_cluster->points.size();
-        //     cloud_cluster->height = 1;
-        //     cloud_cluster->is_dense = true;
-        //     sensor_msgs::PointCloud2 ros_pointcloud;
-        //     autoware_msgs::DynamicObjectWithFeature feature_object;
-        //     pcl::toROSMsg(*cloud_cluster, ros_pointcloud);
-        //     ros_pointcloud.header = input_msg->header;
-        //     feature_object.feature.cluster = ros_pointcloud;
-        //     output.feature_objects.push_back(feature_object);
-        // }
-        // cluster_pub_.publish(output);
+        autoware_msgs::DynamicObjectWithFeatureArray output;
+        output.header = input_msg->header;
+        for (std::vector<pcl::PointCloud<pcl::PointXYZ>>::const_iterator cluster_itr = v_cluster.begin();
+             cluster_itr != v_cluster.end();
+             ++cluster_itr)
+        {
+            pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_cluster(new pcl::PointCloud<pcl::PointXYZ>);
+            for (pcl::PointCloud<pcl::PointXYZ>::const_iterator point_itr = cluster_itr->points.begin();
+                 point_itr != cluster_itr->points.end();
+                 ++point_itr)
+            {
+                cloud_cluster->points.push_back(*point_itr);
+            }
+            cloud_cluster->width = cloud_cluster->points.size();
+            cloud_cluster->height = 1;
+            cloud_cluster->is_dense = true;
+            sensor_msgs::PointCloud2 ros_pointcloud;
+            autoware_msgs::DynamicObjectWithFeature feature_object;
+            pcl::toROSMsg(*cloud_cluster, ros_pointcloud);
+            ros_pointcloud.header = input_msg->header;
+            feature_object.feature.cluster = ros_pointcloud;
+            output.feature_objects.push_back(feature_object);
+        }
+        cluster_pub_.publish(output);
     }
 
     // build debug msg
