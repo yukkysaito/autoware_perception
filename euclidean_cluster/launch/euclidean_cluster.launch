@@ -28,7 +28,7 @@
 
   <node pkg="nodelet" type="nodelet" name="$(anon euclidean_cluster)" args="load euclidean_cluster/euclidean_cluster_nodelet euclidean_cluster_manager" output="screen">
     <remap if="$(arg use_pointcloud_map)" from="~input" to="compare_map/filtered"/>
-    <remap unless="$(arg use_pointcloud_map)" from="~input" to="compare_map/filtered"/>
+    <remap unless="$(arg use_pointcloud_map)" from="~input" to="voxel_grid/filtered"/>
     <remap from="~output" to="$(arg output/clusters)"/>
     <rosparam>
             target_frame: base_link
