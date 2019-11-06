@@ -28,6 +28,11 @@
 #include <geometry_msgs/TransformStamped.h>
 #include <visualization_msgs/MarkerArray.h>
 
+#include <tf2/transform_datatypes.h>
+#include <tf2/convert.h>
+#include <tf2/LinearMath/Transform.h>
+#include <tf2_sensor_msgs/tf2_sensor_msgs.h>
+
 // headers in local files
 #include "map_based_prediction_ros.h"
 
@@ -47,11 +52,31 @@ void MapBasedPredictionROS::createROSPubSub()
 void MapBasedPredictionROS::objectsCallback(const autoware_msgs::DynamicObjectArrayConstPtr& in_objects)
 {
   std::chrono::high_resolution_clock::time_point t1 = std::chrono::high_resolution_clock::now();
-  if(in_objects->header.frame_id != "map")
+  autoware_msgs::DynamicObjectArray objects_in_map;
+  /* transform to map coordinate */
+  geometry_msgs::TransformStamped objects2map;
+  try
   {
-    ROS_ERROR("Subscribed objects are not in map frame!");
+    objects2map = tf_buffer_.lookupTransform(
+      /*target*/ "map", 
+      /*src*/ in_objects->header.frame_id,
+              in_objects->header.stamp);
+  }
+  catch (tf2::TransformException &ex)
+  {
+    ROS_WARN("%s", ex.what());
     return;
   }
+  for(const auto& object: in_objects->objects)
+  { 
+    geometry_msgs::Pose pose_out;
+    tf2::doTransform(object.state.pose.pose, pose_out, objects2map);
+    autoware_msgs::DynamicObject tmp_object;
+    tmp_object = object;
+    tmp_object.state.pose.pose = pose_out;
+    objects_in_map.objects.push_back(tmp_object);
+  }
+  
 
   // subscribe
   if(!has_subscribed_map_)
@@ -67,22 +92,60 @@ void MapBasedPredictionROS::objectsCallback(const autoware_msgs::DynamicObjectAr
   }
 
   autoware_msgs::DynamicObjectArray out_objects;
-  if(map_based_prediction_.doPrediction(in_objects, vectormap_.lane_points_, out_objects))
+  if(map_based_prediction_.doPrediction(objects_in_map, vectormap_.lane_points_, out_objects))
   {
-    // int a = 0;
-    publishMarker(out_objects);
+    /* transform form map to world coordinate */
+    geometry_msgs::TransformStamped map2world;
+    try
+    {
+      map2world = tf_buffer_.lookupTransform(
+        /*target*/ in_objects->header.frame_id, 
+        /*src*/ "map",
+        in_objects->header.stamp);
+    }
+    catch (tf2::TransformException &ex)
+    {
+      ROS_WARN("%s", ex.what());
+      return;
+    }
+    autoware_msgs::DynamicObjectArray objects_in_world;
+    objects_in_world.header = in_objects->header;
+    for(const auto& object: out_objects.objects)
+    { 
+      geometry_msgs::Pose pose_out;
+      tf2::doTransform(object.state.pose.pose, pose_out, map2world);
+      autoware_msgs::DynamicObject tmp_object;
+      tmp_object = object;
+      tmp_object.state.pose.pose = pose_out;
+      tmp_object.state.predicted_paths.clear();
+      for(const auto& path: object.state.predicted_paths)
+      {
+        autoware_msgs::PredictedPath tmp_path;
+        tmp_path.confidence = path.confidence;
+        for(const auto& path_pose: path.path)
+        {
+          geometry_msgs::PoseWithCovarianceStamped tmp;
+          tmp = path_pose;
+          geometry_msgs::Pose tmp_path_pose;
+          tf2::doTransform(path_pose.pose.pose, tmp_path_pose, map2world);
+          tmp.pose.pose = tmp_path_pose;
+          tmp_path.path.push_back(tmp);
+        }
+        tmp_object.state.predicted_paths.push_back(tmp_path);
+      }
+      objects_in_world.objects.push_back(tmp_object);
+    }
+    publishMarker(objects_in_world);
   }
   else
   {
     ROS_ERROR("Faile to predict");
   }
   
-  std::chrono::high_resolution_clock::time_point t2 = std::chrono::high_resolution_clock::now();
-  std::chrono::duration<double> time_span = std::chrono::duration_cast<std::chrono::duration<double>>(t2 - t1);
-  // std::cerr << "Prediction took " << time_span.count()*1000 << " msec." << std::endl;
-  
-  
-  // std::cerr << "prediction success" << std::endl;
+  // std::chrono::high_resolution_clock::time_point t2 = std::chrono::high_resolution_clock::now();
+  // std::chrono::duration<double> time_span = std::chrono::duration_cast<std::chrono::duration<double>>(t2 - t1);
+  // // std::cerr << "Prediction took " << time_span.count()*1000 << " msec." << std::endl;
+  // // std::cerr << "prediction success" << std::endl;
 
 }
 

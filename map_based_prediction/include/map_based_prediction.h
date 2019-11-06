@@ -107,7 +107,7 @@ private:
 public:
   MapBasedPrediction();
   
-  bool doPrediction(const autoware_msgs::DynamicObjectArrayConstPtr& in_objects,
+  bool doPrediction(const autoware_msgs::DynamicObjectArray& in_objects,
                     const std::vector<LanePoint>& lane_poitns,
                     autoware_msgs::DynamicObjectArray& out_objects);
                     

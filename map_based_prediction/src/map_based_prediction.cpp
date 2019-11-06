@@ -42,13 +42,13 @@ bool MapBasedPrediction::getNearestLane(const std::vector<LanePoint>& lane_point
   return flag;
 }
 
-bool MapBasedPrediction::doPrediction(const autoware_msgs::DynamicObjectArrayConstPtr& in_objects,
+bool MapBasedPrediction::doPrediction(const autoware_msgs::DynamicObjectArray& in_objects,
                                       const std::vector<LanePoint>& lane_poitns,
                                       autoware_msgs::DynamicObjectArray& out_objects)
 {
   // std::cerr << "frame start  ***************" << std::endl;
   // std::cerr << "num input object " << in_objects->objects.size()<< std::endl;
-  out_objects = *in_objects;
+  out_objects = in_objects;
   for (auto& object: out_objects.objects)
   {
     if(object.semantic.type != autoware_msgs::Semantic::CAR &&
