@@ -58,11 +58,11 @@ void MultiObjectTrackerNode::measurementCallback(const autoware_msgs::DynamicObj
         {
             geometry_msgs::TransformStamped ros_current_pose2objects_world;
             ros_current_pose2objects_world = tf_buffer_.lookupTransform(/*target*/ base_link_frame_id_, /*src*/ input_transformed_objects.header.frame_id,
-                                                                        input_transformed_objects.header.stamp);
+                                                                        input_transformed_objects.header.stamp, ros::Duration(0.5));
             tf2::fromMsg(ros_current_pose2objects_world.transform, tf_current_pose2objects_world);
             geometry_msgs::TransformStamped ros_world2current_pose_world;
             ros_world2current_pose_world = tf_buffer_.lookupTransform(/*target*/ world_frame_id_, /*src*/ input_current_pose_msg->header.frame_id,
-                                                                      input_current_pose_msg->header.stamp);
+                                                                      input_current_pose_msg->header.stamp, ros::Duration(0.5));
             tf2::fromMsg(ros_world2current_pose_world.transform, tf_world2current_pose_world);
         }
         catch (tf2::TransformException &ex)

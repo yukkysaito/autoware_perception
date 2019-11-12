@@ -60,7 +60,7 @@ void MapBasedPredictionROS::objectsCallback(const autoware_msgs::DynamicObjectAr
     objects2map = tf_buffer_.lookupTransform(
       /*target*/ "map", 
       /*src*/ in_objects->header.frame_id,
-              in_objects->header.stamp);
+              in_objects->header.stamp, ros::Duration(0.5));
   }
   catch (tf2::TransformException &ex)
   {
@@ -101,7 +101,7 @@ void MapBasedPredictionROS::objectsCallback(const autoware_msgs::DynamicObjectAr
       map2world = tf_buffer_.lookupTransform(
         /*target*/ in_objects->header.frame_id, 
         /*src*/ "map",
-        in_objects->header.stamp);
+        in_objects->header.stamp, ros::Duration(0.5));
     }
     catch (tf2::TransformException &ex)
     {
